@@ -11,21 +11,26 @@
         android:theme="@style/Theme.PesoApp">
         <activity
             android:name=".View.Activity_menu"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/NoActionBar">
 
         </activity>
         <activity
             android:name=".View.Activity_calculadora"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/NoActionBar">
 
         </activity>
         <activity
             android:name=".View.Activity_Recordatorio"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/NoActionBar"/>
         <activity
             android:name=".View.Activity_splashscreen"
             android:exported="false"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+
+        </activity>
         <activity
             android:name=".View.Activity_crearcuenta"
             android:exported="false"

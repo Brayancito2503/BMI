@@ -14,7 +14,6 @@ class Activity_menu : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
 
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -8,6 +8,28 @@
     tools:context=".View.Activity_crearcuenta"
     android:background="@drawable/img2">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/NoActionBar"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:background="@color/green_flat"
+            android:id="@+id/toolCrearCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/bmi" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,6 +44,7 @@
             android:layout_marginTop="@dimen/mar_arriba"
             android:layout_marginStart="@dimen/margenizq"
             android:layout_marginEnd="@dimen/margender">
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

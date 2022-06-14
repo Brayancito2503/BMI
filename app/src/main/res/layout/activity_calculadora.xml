@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Activity_calculadora">
+
+    <LinearLayout
+        android:id="@+id/layoutArriba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <CheckBox
+            android:id="@+id/btnNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/efecto_bottom"
+            android:onClick="btnHombreOnClick"
+            android:layout_marginLeft="50dp"/>
+
+        <LinearLayout
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:background="#B1B1B1"
+            android:orientation="vertical" />
+
+        <CheckBox
+            android:id="@+id/btnMujer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/mujer"
+            android:onClick="btnMujerOnClick" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutCentro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/layoutArriba"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <EditText
+            android:id="@+id/alturaTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:hint="Altura"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"/>
+
+        <EditText
+            android:id="@+id/pesoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:hint="Peso"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/btnConfirmar"
+            android:layout_width="311dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_bottom"
+            android:onClick="btnConfirmarOnClick"
+            android:text="Confirmar"
+            app:backgroundTint="@null"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/layoutCentro">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="13dp"
+            android:text="BMI" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:text="Peso ideal" />
+
+        <TextView
+            android:id="@+id/bmibl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="16dp"
+            tools:text="bmi" />
+
+        <TextView
+            android:id="@+id/pilbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="18dp"
+            tools:text="pesoideal" />
+
+    </LinearLayout>
+
+
+    <com.github.anastr.speedviewlib.SpeedView
+        android:id="@+id/speedometer"
+        android:layout_width="361dp"
+        android:layout_height="234dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.322"
+        app:sv_centerCircleRadius="20dp"
+
+        app:sv_indicator="TriangleIndicator"
+
+        app:sv_indicatorColor="@color/black"
+
+        app:sv_indicatorWidth="15dp"
+        app:sv_markHeight="0dp"
+
+        app:sv_maxSpeed="40"
+
+
+        app:sv_minSpeed="16"
+        app:sv_speedometerMode="TOP"
+        app:sv_speedometerWidth="35dp"
+        app:sv_textColor="@color/white"
+        app:sv_unit="IMC"
+        app:sv_unitSpeedInterval="10dp"
+        app:sv_unitUnderSpeedText="true"
+        app:sv_withTremble="false" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

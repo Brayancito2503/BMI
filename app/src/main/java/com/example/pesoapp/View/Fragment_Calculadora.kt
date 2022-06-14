@@ -6,21 +6,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pesoapp.R
 import com.example.pesoapp.databinding.FragmentCalculadoraBinding
+import com.github.anastr.speedviewlib.SpeedView
 import kotlin.math.pow
 
 
 class Fragment_Calculadora : Fragment() {
 
-    lateinit var binding: FragmentCalculadoraBinding
+    private var fbinding: FragmentCalculadoraBinding? = null
+    private val binding get() = fbinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__calculadora, container, false)
+        fbinding = FragmentCalculadoraBinding.inflate(layoutInflater)
+        val view = binding.root
+
+
+//        val speedometer =  binding<SpeedView>(R.id.speedometer)
+
+        return view
     }
 
     var f1 = 0f

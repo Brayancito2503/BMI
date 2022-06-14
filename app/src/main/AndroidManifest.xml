@@ -9,14 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PesoApp">
-
         <activity
-            android:name=".View.Activity_Recordatorio"
-            android:exported="false" />
-        <activity
-            android:name=".View.Activity_splashscreen"
-            android:exported="true"
-            android:theme="@style/NoActionBar">
+            android:name=".View.Activity_menu"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,17 +19,30 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".View.Activity_calculadora"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".View.Activity_Recordatorio"
+            android:exported="false" />
+        <activity
+            android:name=".View.Activity_splashscreen"
+            android:exported="false"
+            android:theme="@style/NoActionBar"></activity>
+        <activity
             android:name=".View.Activity_crearcuenta"
             android:exported="false"
             android:theme="@style/NoActionBar" />
         <activity
             android:name=".View.Activity_login"
             android:exported="false"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>

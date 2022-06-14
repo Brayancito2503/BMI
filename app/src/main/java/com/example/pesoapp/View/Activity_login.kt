@@ -43,6 +43,8 @@ class Activity_login : AppCompatActivity() {
             }
             else{
                 Toast.makeText(this, "Usuario ha sido creado", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, Activity_menu::class.java)
+                startActivity(intent)
             }
         }
 

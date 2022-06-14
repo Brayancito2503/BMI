@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".View.Fragment_Calculadora">
+
+    <Button
+        android:id="@+id/btnNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/hombre"
+        android:shadowColor="@color/black"
+        android:onClick="btnHombreOnClick"
+        app:layout_constraintBaseline_toBaselineOf="@id/btnMujer"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/btnMujer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mujer"
+        android:layout_marginLeft="20dp"
+        android:onClick="btnMujerOnClick"
+        app:layout_constraintStart_toEndOf="@id/btnNombre"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/alturaTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Altura"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnNombre"/>
+
+    <EditText
+        android:id="@+id/pesoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Peso"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@id/alturaTxt"
+        app:layout_constraintTop_toBottomOf="@id/alturaTxt"/>
+
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="btnConfirmarOnClick"
+        android:text="Confirmar"
+        app:layout_constraintStart_toStartOf="@id/pesoTxt"
+        app:layout_constraintTop_toBottomOf="@id/pesoTxt"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="13dp"
+        android:text="BMI"
+        app:layout_constraintStart_toStartOf="@id/btnConfirmar"
+        app:layout_constraintTop_toBottomOf="@id/btnConfirmar"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:text="Peso ideal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bmibl" />
+
+    <TextView
+        android:id="@+id/bmibl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        tools:text="bmi"
+        app:layout_constraintEnd_toStartOf="@id/textView"
+        app:layout_constraintStart_toStartOf="@id/textView"
+        app:layout_constraintTop_toBottomOf="@id/textView"/>
+
+    <TextView
+        android:id="@+id/pilbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        tools:text="pesoideal"
+        android:layout_marginTop="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView2"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

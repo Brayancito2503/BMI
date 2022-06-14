@@ -1,0 +1,43 @@
+<resources>
+    <string name="hello_blank_fragment">Hola a todos</string>
+    <string name="app_name">PesoApp</string>
+    <string name="strlogoArteLista">BMI Calculator</string>
+    <string name="hUserName">Usuario</string>
+    <string name="hPassword">Contraseña</string>
+    <string name="strContrasenia">Contraseña</string>
+    <string name="strIniciarSesion">Iniciar sesión</string>
+    <string name="strNoTieneCuenta">No tienes cuenta?</string>
+    <string name="strCreaUna">Cree una aquí</string>
+    <string name="hemail">Email</string>
+    <string name="hConfirmarPassword">Confirmar password</string>
+    <string name="strCrearCuenta">Crear cuenta</string>
+    <string name="strTituloHome">Enamorados del arte desde 2004</string>
+    <string name="strTituloHomeVistas">1,001,937 obras de arte y 143,544 artistas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="strArtista">Artista</string>
+    <string name="strEvento">Exposición Primavera en Oleo</string>
+    <string name="strGaleria">Galería</string>
+    <string name="strNombreArtista">Argentina Vargas</string>
+    <string name="strTituloArte">Las mil y una noche</string>
+    <string name="strMeGusta">Me gusta</string>
+    <string name="strPrecioPintura">1,200.00</string>
+    <string name="strMoneda">$</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="strDescripcionArte">Carlos PardoTasies nace en San Josè, Costa Rica en 1952, por azares de la vida ya que su familia radica en Puerto Limòn, provincia del paìs donde se crìa hasta los 6 años. Desde pequeño es impactado por los colores de la provincia habitada en su gran mayorìa por gente de raza negra. Empieza a dibujar desde muy pequeña edad los barcos del muelle y las casuchas del lugar. El impacto del color de las frutas, los amaneceres y las gamas usadas en las casas</string>
+    <string name="strCategoria">Oleo</string>
+
+
+    <string name="strNombreArtistaPerfil">Rodrigo Matus Lazo</string>
+    <string name="strCiudad">Managua, Nicaragua</string>
+    <string name="strAcercaDeMi">Acerca de mí</string>
+    <string name="strNombreTwitter">\@RafaelLopez</string>
+    <string name="strDescripcionQuienSoy">Nací en la capital de Nicaragua, mi pasión ha sido la pintura en Oleo, siendo mis favoritas las pinturas en oleo. Durante niño me inicié en la pintura de forma nata, luego fui perfeccionando mi técnica en escuelas profesionales. Tengo mas de 10 años de experiencia en pintura.</string>
+    <string name="strCategoriaArtista">Artista plástico</string>
+    <string name="strPaisArtista">Nicaragua</string>
+    <string name="strHora1">09:00AM</string>
+    <string name="strEventoCategoria">Pintura en Oleo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="strMapaUbicacion">Mapa de Ubicación Geográfica</string>
+</resources>

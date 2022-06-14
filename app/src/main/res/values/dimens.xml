@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tamtexto1">30sp</dimen>
+    <dimen name="tamtexto2">16sp</dimen>
+    <dimen name="tamtexto3">18sp</dimen>
+    <dimen name="margenizq">15dp</dimen>
+    <dimen name="margender">15dp</dimen>
+    <dimen name="margentop">15dp</dimen>
+    <dimen name="margen">10dp</dimen>
+    <dimen name="mar_arriba">200dp</dimen>
+    <dimen name="margen1">5dp</dimen>
+    <dimen name="margentop1">50dp</dimen>
+    <dimen name="alto1">250dp</dimen>
+    <dimen name="alto2">20dp</dimen>
+    <dimen name="alto3">3dp</dimen>
+    <dimen name="alto4">30dp</dimen>
+</resources>

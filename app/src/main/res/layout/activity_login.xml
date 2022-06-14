@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".View.Activity_login">
+
+        <ImageView
+            android:id="@+id/imglogoLogin"
+            android:layout_width="259dp"
+            android:layout_height="235dp"
+            android:layout_marginTop="@dimen/margentop"
+            android:src="@drawable/bmilogo"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tvlogoArtelista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strlogoArteLista"
+            android:textSize="@dimen/tamtexto1"
+            android:textStyle="bold"
+            android:fontFamily="@font/warden"
+            android:textColor="@color/black"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imglogoLogin"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/margenizq"
+            android:layout_marginRight="@dimen/margender"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvlogoArtelista">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/persona2"
+                    android:drawablePadding="@dimen/margender"
+                    android:fontFamily="@font/opensans"
+                    android:gravity="left|center_horizontal"
+                    android:hint="@string/hemail"
+                    android:background="@drawable/text_edit"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margentop">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hPassword"
+                    android:fontFamily="@font/opensans"
+                    android:drawablePadding="@dimen/margender"
+                    android:drawableLeft="@drawable/pass2"
+                    android:gravity="left|center_horizontal"
+                    android:inputType="textPassword"
+                    android:background="@drawable/text_edit"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIniciar"
+                android:background="@drawable/fondo_degradado"
+                app:backgroundTint="@null"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margentop1"
+                android:fontFamily="@font/opensans"
+                android:text="@string/strIniciarSesion"
+                android:textStyle="bold"
+                app:cornerRadius="10dp">
+            </com.google.android.material.button.MaterialButton>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvNoTieneCuenta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rocko"
+                    android:text="@string/strNoTieneCuenta"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tamtexto2" />
+
+                <TextView
+                    android:id="@+id/TvCreeUna"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margen"
+                    android:layout_toRightOf="@+id/tvNoTieneCuenta"
+                    android:fontFamily="@font/rocko"
+                    android:onClick="onClickCrearCuenta"
+                    android:text="@string/strCrearCuenta"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tamtexto2"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

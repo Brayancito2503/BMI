@@ -6,6 +6,7 @@ import com.example.pesoapp.R
 
 class Activity_crearcuenta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        //HOLA
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crearcuenta)
     }

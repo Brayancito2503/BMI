@@ -40,4 +40,18 @@
     <string name="strEventoCategoria">Pintura en Oleo</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="strMapaUbicacion">Mapa de Ubicación Geográfica</string>
+
+
+    <!--  Menu desplegable  -->
+    <string-array name="Estatura">
+        <item>cm</item>
+        <item>m</item>
+    </string-array>
+
+
+    <string-array name="Peso">
+        <item>lb</item>
+        <item>kg</item>
+    </string-array>
+
 </resources>

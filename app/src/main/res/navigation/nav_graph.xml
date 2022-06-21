@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_Calculadora">
+    app:startDestination="@id/mfragment_calculadora">
 
 
     <fragment
-        android:id="@+id/fragment_Calculadora"
+        android:id="@+id/mfragment_calculadora"
         android:name="com.example.pesoapp.View.Fragment_Calculadora"
         android:label="fragment__calculadora"
         tools:layout="@layout/fragment__calculadora" />
+
 </navigation>

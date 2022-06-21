@@ -22,9 +22,9 @@ class Activity_calculadora : AppCompatActivity() {
 
         speedometer.makeSections(3, Color.BLUE, Style.BUTT)
 
-        speedometer.sections[0].color = Color.BLUE
-        speedometer.sections[1].color = Color.GREEN
-        speedometer.sections[2].color = Color.RED
+        speedometer.sections[0].color = Color.rgb(32,165,242)
+        speedometer.sections[1].color = Color.rgb(252, 84,73)
+        speedometer.sections[2].color = Color.rgb(63,189,99)
 
 
         val check = findViewById<CheckBox>(R.id.btnNombre)

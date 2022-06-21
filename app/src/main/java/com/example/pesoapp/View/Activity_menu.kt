@@ -3,14 +3,16 @@ package com.example.pesoapp.View
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.pesoapp.R
 import com.example.pesoapp.databinding.ActivityMenuBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Activity_menu : AppCompatActivity() {
 
-    lateinit var binding: ActivityMenuBinding
+    private lateinit var binding: ActivityMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,10 +20,16 @@ class Activity_menu : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val menubmi: BottomNavigationView = binding.bottomNavMenu
-        NavigationUI.setupWithNavController(
-            menubmi,
-            Navigation.findNavController(this, R.id.frag_navgraph)
-        )
+//        val menubmi: BottomNavigationView = binding.bottomNavMenu
+//        setupWithNavController(
+//            menubmi,
+//            Navigation.findNavController(this, R.id.frag_navgraph)
+//        )
+
+        val navHost = supportFragmentManager.findFragmentById(androidx.navigation.fragment.R.id.nav_host_fragment_container)!!
+        val navController = navHost.findNavController()
+
+        binding.bottomNavMenu.setupWithNavController(navController)
+
     }
 }

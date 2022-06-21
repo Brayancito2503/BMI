@@ -7,78 +7,74 @@
     android:layout_height="match_parent"
     tools:context=".View.Activity_Recordatorio">
 
-        <LinearLayout
-            android:orientation="horizontal"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titleET"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="Elegir Titulo" />
 
-            <TextView
-                android:id="@+id/tv_fecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:hint="Fecha seleccionada..."
-                android:textColor="#000"
-                android:textSize="20dp"></TextView>
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btn_selefecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/design_default_color_primary_dark"
-                android:padding="10dp"
-                android:text="Seleccionar Fecha"
-                android:textColor="#fff">
-            </Button>
-        </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/messageET"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="Descripcion" />
 
-            <TextView
-                android:id="@+id/tv_hora"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:textSize="20dp"
-                android:hint="Hora seleccionada"
-                android:textColor="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+    </com.google.android.material.textfield.TextInputLayout>
 
-            </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
 
-            <Button
-                android:id="@+id/btn_selehora"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/design_default_color_primary_dark"
-                android:padding="10dp"
-                android:text="Seleccionar Hora"
-                android:textColor="#fff">
-            </Button>
-        </LinearLayout>
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:layout_gravity="center"
+            android:scaleY="0.7"
+            android:scaleX="0.7"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginRight="-30dp"
+            />
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner"
+            android:layout_gravity="center"
+            android:scaleY="0.7"
+            android:scaleX="0.7"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginRight="-30dp"/>
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_guardar"
-            android:text="Guardar Alarma"
-            android:background="@color/design_default_color_primary_dark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
-
-        <Button
-            android:layout_marginTop="19dp"
-            android:id="@+id/btn_eliminar"
-            android:text="Eliminar Alarma"
-            android:background="@color/design_default_color_primary_dark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="Crear Recordatorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 

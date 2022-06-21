@@ -10,6 +10,15 @@
         android:id="@+id/mfragment_calculadora"
         android:name="com.example.pesoapp.View.Fragment_Calculadora"
         android:label="fragment__calculadora"
-        tools:layout="@layout/fragment__calculadora" />
+        tools:layout="@layout/fragment__calculadora" >
+        <action
+            android:id="@+id/action_mfragment_calculadora_to_activity_Recordatorio"
+            app:destination="@id/mactivity_Recordatorio" />
+    </fragment>
+    <activity
+        android:id="@+id/mactivity_Recordatorio"
+        android:name="com.example.pesoapp.View.Activity_Recordatorio"
+        android:label="activity_recordatorio"
+        tools:layout="@layout/activity_recordatorio" />
 
 </navigation>

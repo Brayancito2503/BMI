@@ -16,24 +16,14 @@
         </receiver>
         <activity
             android:name=".View.Activity_menu"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".View.Activity_calculadora"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".View.Activity_Recordatorio"
@@ -41,9 +31,13 @@
             android:theme="@style/NoActionBar"/>
         <activity
             android:name=".View.Activity_splashscreen"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
         </activity>

@@ -5,8 +5,8 @@
         android:title="Calcular BMI"
         android:icon="@drawable/bmi"/>
 
-<!--    <item android:id="@+id/mfragment_galeriamusica"-->
-<!--        android:title="Recordatorio"-->
-<!--        android:icon="@drawable/recordatorio"/>-->
+    <item android:id="@+id/mactivity_Recordatorio"
+        android:title="Recordatorio"
+        android:icon="@drawable/recordatorio"/>
 
 </menu>

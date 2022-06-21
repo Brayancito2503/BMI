@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Harito uwu/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_main.xml" value="0.19067028985507245" />
-        <entry key="..\:/Users/Harito uwu/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_recordatorio.xml" value="0.19067028985507245" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/drawable-v24/custom_bottom.xml" value="0.224" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/drawable-v24/efecto_boton_mujer.xml" value="0.1355" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/drawable-v24/efecto_bottom.xml" value="0.1355" />
@@ -15,10 +13,11 @@
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/activity_crearcuenta.xml" value="0.2" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/activity_login.xml" value="0.136" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/activity_menu.xml" value="0.2" />
-        <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/activity_recordatorio.xml" value="0.12132725430597771" />
-        <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/fragment__calculadora.xml" value="0.2" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/activity_recordatorio.xml" value="0.264" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/fragment__calculadora.xml" value="0.264" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/fragment_fragmento_calculadora.xml" value="0.1" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/list_item.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/layout/list_item_peso.xml" value="0.25" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/menu/menu_bmi.xml" value="0.264" />
       </map>
     </option>

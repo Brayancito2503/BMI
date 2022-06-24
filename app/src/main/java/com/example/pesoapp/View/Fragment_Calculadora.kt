@@ -32,7 +32,8 @@ class Fragment_Calculadora : Fragment(), AdapterView.OnItemClickListener {
     var f1 = 0f
     var f2 = 0f
 
-    lateinit var item: String
+    var item:String = ""
+    var item2:String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +54,6 @@ class Fragment_Calculadora : Fragment(), AdapterView.OnItemClickListener {
         }
 
 
-
         val adapterPeso = context?.let {
             ArrayAdapter(
                 it,
@@ -65,10 +65,12 @@ class Fragment_Calculadora : Fragment(), AdapterView.OnItemClickListener {
         with(binding.autoCompleteEstaturaMedida){
             setAdapter(adapterEstatura)
             onItemClickListener = this@Fragment_Calculadora
+//            onItemSelectedListener = this@Fragment_Calculadora
         }
         with(binding.autoCompletePesoMedida){
             setAdapter(adapterPeso)
             onItemClickListener = this@Fragment_Calculadora
+//            onItemSelectedListener = this@Fragment_Calculadora
         }
 
 
@@ -109,29 +111,67 @@ class Fragment_Calculadora : Fragment(), AdapterView.OnItemClickListener {
             val txtAltura = binding.alturaTxt
             val peso = txtPeso.text.toString().toFloat()
             val altura = txtAltura.text.toString().toFloat()
-            val resultado:Float
-            val pi: Double = ((((altura - 152.4) / 2.54) * f1) + f2)
+            var resultado:Float
+            var pi: Double
 
-            if(item == "cm" && item == "lb"){
+//            if(item == "cm" && item2 == "lb"){
+//
+//                resultado = ((peso/2.2) / (altura / 100).pow(2)).toFloat()
+//                pi = ((((altura - 152.4) / 2.54) * f1) + f2)
+//                Toast.makeText(context, "entro al primero < Pi $pi > <R $resultado >", Toast.LENGTH_SHORT).show()
+//                if (resultado < 18) {
+//                    lblInc.text = "Debajo de lo normal $resultado"
+//                } else if (resultado >= 18.1 && resultado <= 24.9) {
+//                    lblInc.text = "Peso Normal $resultado"
+//                } else if (resultado >= 25 && resultado <= 29.9) {
+//                    lblInc.text = "Sobre Peso $resultado"
+//                } else if (resultado >= 30 && resultado <= 34.9) {
+//                    lblInc.text = "Obesidad tipo I $resultado"
+//                } else if (resultado > 35) {
+//                    lblInc.text = "Obesidad tipo II $resultado"
+//                }
+//                lblPi.text = "$pi"
+//                Toast.makeText(context,"$peso",Toast.LENGTH_SHORT).show()
+//                speedometer.speedTo(resultado, 4000)
+//            }else if(item == "m" && item2 == "lb"){
+//
+//
+//                resultado = ((peso/2.2)/((altura).pow(2))).toFloat()
+//                pi = (((((altura * 100 ) - 152.4) / 2.54) * f1) + f2)
+//
+//                Toast.makeText(context, "entro al segungo < Pi $pi > <R $resultado >", Toast.LENGTH_SHORT).show()
+//                if (resultado < 18) {
+//                    lblInc.text = "Debajo de lo normal $resultado"
+//                } else if (resultado >= 18.1 && resultado <= 24.9) {
+//                    lblInc.text = "Peso Normal $resultado"
+//                } else if (resultado >= 25 && resultado <= 29.9) {
+//                    lblInc.text = "Sobre Peso $resultado"
+//                } else if (resultado >= 30 && resultado <= 34.9) {
+//                    lblInc.text = "Obesidad tipo I $resultado"
+//                } else if (resultado > 35) {
+//                    lblInc.text = "Obesidad tipo II $resultado"
+//                }
+//                lblPi.text = "$pi"
+//                Toast.makeText(context,"$peso",Toast.LENGTH_SHORT).show()
+//                speedometer.speedTo(resultado, 4000)
+//            }
+//
+//            resultado = peso / (altura / 100).pow(2)
+//            if (resultado < 18) {
+//                lblInc.text = "Debajo de lo normal $resultado"
+//            } else if (resultado >= 18.1 && resultado <= 24.9) {
+//                lblInc.text = "Peso Normal $resultado"
+//            } else if (resultado >= 25 && resultado <= 29.9) {
+//                lblInc.text = "Sobre Peso $resultado"
+//            } else if (resultado >= 30 && resultado <= 34.9) {
+//                lblInc.text = "Obesidad tipo I $resultado"
+//            } else if (resultado > 35) {
+//                lblInc.text = "Obesidad tipo II $resultado"
+//            }
+//            lblPi.text = "$pi"
+//            Toast.makeText(context,"$peso",Toast.LENGTH_SHORT).show()
+//            speedometer.speedTo(resultado, 4000)
 
-            }else if(item == "m"){
-                Toast.makeText(context, "NO SIRVVE", Toast.LENGTH_SHORT).show()
-            }
-            resultado = (peso/2.2F) / (altura / 100).pow(2)
-            if (resultado < 18) {
-                lblInc.text = "Debajo de lo normal $resultado"
-            } else if (resultado >= 18.1 && resultado <= 24.9) {
-                lblInc.text = "Peso Normal $resultado"
-            } else if (resultado >= 25 && resultado <= 29.9) {
-                lblInc.text = "Sobre Peso $resultado"
-            } else if (resultado >= 30 && resultado <= 34.9) {
-                lblInc.text = "Obesidad tipo I $resultado"
-            } else if (resultado > 35) {
-                lblInc.text = "Obesidad tipo II $resultado"
-            }
-            lblPi.text = "$pi"
-            Toast.makeText(context,"$peso",Toast.LENGTH_SHORT).show()
-            speedometer.speedTo(resultado, 4000)
         }
 
 
@@ -142,22 +182,38 @@ class Fragment_Calculadora : Fragment(), AdapterView.OnItemClickListener {
     }
 
 
+//    val aux:String = item
+//    var aux2:String = item2
 
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
-        item = parent?.getItemAtPosition(position).toString()
+        val hola = resources.getStringArray(R.array.Estatura)
+        item = hola.get(position)
+        val hola2 = resources.getStringArray(R.array.Peso)
+        item2 = hola2.get(position)
 
-        Toast.makeText(context, item, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, aux, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "item 1 $item y item 2 $item2", Toast.LENGTH_SHORT).show()
+
 
         if(item == "cm" || item == "m"){
             binding.alturaTxt.isEnabled = true
+            Toast.makeText(context,"es el item 1 $item", Toast.LENGTH_SHORT).show()
         }
-        if(item == "lb" || item == "kg"){
+        if(item2 == "lb" || item2 == "kg"){
             binding.pesoTxt.isEnabled = true
+            Toast.makeText(context,"es el item 2 $item2", Toast.LENGTH_SHORT).show()
         }
+//
+//        if(item == "cm" && item2 == "lb"){
+//            Toast.makeText(context, "si sirve item 1 <$item > item 2 <$item2> ", Toast.LENGTH_SHORT).show()
+//        }
+//
 
 
     }
+
+
 
 }

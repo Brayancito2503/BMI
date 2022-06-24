@@ -3,7 +3,7 @@
 
     <item android:drawable="@drawable/mujer_pequenia"
         android:state_checked="false"></item>
-    <item android:drawable="@drawable/mujer"
+    <item android:drawable="@drawable/mujer_grande"
         android:state_checked="true"></item>
     <item android:drawable="@drawable/mujer_pequenia"></item>
 </selector>

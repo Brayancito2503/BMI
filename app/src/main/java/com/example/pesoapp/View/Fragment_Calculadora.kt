@@ -111,8 +111,8 @@ class Fragment_Calculadora : Fragment(), AdapterView.OnItemClickListener {
             val txtAltura = binding.alturaTxt
             val peso = txtPeso.text.toString().toFloat()
             val altura = txtAltura.text.toString().toFloat()
-            var resultado:Float
-            var pi: Double
+            var resultado = peso / (altura / 100).pow(2)
+            var pi =((((altura - 152.4) / 2.54) * f1) + f2)
 
 //            if(item == "cm" && item2 == "lb"){
 //
@@ -156,21 +156,21 @@ class Fragment_Calculadora : Fragment(), AdapterView.OnItemClickListener {
 //                speedometer.speedTo(resultado, 4000)
 //            }
 //
-//            resultado = peso / (altura / 100).pow(2)
-//            if (resultado < 18) {
-//                lblInc.text = "Debajo de lo normal $resultado"
-//            } else if (resultado >= 18.1 && resultado <= 24.9) {
-//                lblInc.text = "Peso Normal $resultado"
-//            } else if (resultado >= 25 && resultado <= 29.9) {
-//                lblInc.text = "Sobre Peso $resultado"
-//            } else if (resultado >= 30 && resultado <= 34.9) {
-//                lblInc.text = "Obesidad tipo I $resultado"
-//            } else if (resultado > 35) {
-//                lblInc.text = "Obesidad tipo II $resultado"
-//            }
-//            lblPi.text = "$pi"
-//            Toast.makeText(context,"$peso",Toast.LENGTH_SHORT).show()
-//            speedometer.speedTo(resultado, 4000)
+
+            if (resultado < 18) {
+                lblInc.text = "Debajo de lo normal $resultado"
+            } else if (resultado >= 18.1 && resultado <= 24.9) {
+                lblInc.text = "Peso Normal $resultado"
+            } else if (resultado >= 25 && resultado <= 29.9) {
+                lblInc.text = "Sobre Peso $resultado"
+            } else if (resultado >= 30 && resultado <= 34.9) {
+                lblInc.text = "Obesidad tipo I $resultado"
+            } else if (resultado > 35) {
+                lblInc.text = "Obesidad tipo II $resultado"
+            }
+            lblPi.text = "$pi"
+            Toast.makeText(context,"$peso",Toast.LENGTH_SHORT).show()
+            speedometer.speedTo(resultado, 4000)
 
         }
 

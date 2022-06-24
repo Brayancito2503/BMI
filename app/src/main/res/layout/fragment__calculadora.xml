@@ -185,7 +185,7 @@
 
         app:sv_indicator="TriangleIndicator"
 
-        app:sv_indicatorColor="#23332727"
+        app:sv_indicatorColor="#681531"
         app:sv_indicatorWidth="15dp"
 
         app:sv_markHeight="0dp"

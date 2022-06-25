@@ -21,10 +21,7 @@ class Activity_crearcuenta : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 //--------------------------
-        val toolbar: Toolbar = binding.toolCrearCuenta
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setTitle("Crear cuenta")
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
         binding.btnCrearCuenta.setOnClickListener {
             if (valida().equals(true)) {
                 addCuentaUsuario()

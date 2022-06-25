@@ -14,10 +14,10 @@
 
         <ImageView
             android:id="@+id/imglogoLogin"
-            android:layout_width="259dp"
+            android:layout_width="220dp"
             android:layout_height="235dp"
             android:layout_marginTop="@dimen/margentop"
-            android:src="@drawable/bmilogo"
+            android:src="@drawable/pruebabmi"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -29,7 +29,6 @@
             android:id="@+id/tvlogoArtelista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/strlogoArteLista"
             android:textSize="@dimen/tamtexto1"
             android:textStyle="bold"
             android:fontFamily="@font/warden"
@@ -89,7 +88,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnIniciar"
-                android:background="@drawable/fondo_degradado"
+                android:background="@drawable/custom_bottom"
                 app:backgroundTint="@null"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

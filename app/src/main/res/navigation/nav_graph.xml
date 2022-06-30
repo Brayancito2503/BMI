@@ -14,11 +14,19 @@
         <action
             android:id="@+id/action_mfragment_calculadora_to_activity_Recordatorio"
             app:destination="@id/mactivity_Recordatorio" />
+        <action
+            android:id="@+id/action_mfragment_calculadora_to_fragment_sugerencias2"
+            app:destination="@id/mfragment_sugerencia" />
     </fragment>
     <activity
         android:id="@+id/mactivity_Recordatorio"
         android:name="com.example.pesoapp.View.Activity_Recordatorio"
         android:label="activity_recordatorio"
         tools:layout="@layout/activity_recordatorio" />
+    <fragment
+        android:id="@+id/mfragment_sugerencia"
+        android:name="com.example.pesoapp.View.Fragment_sugerencias"
+        android:label="fragment_sugerencias"
+        tools:layout="@layout/fragment_sugerencias" />
 
 </navigation>

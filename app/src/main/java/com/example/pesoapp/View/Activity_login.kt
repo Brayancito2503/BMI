@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth
 class Activity_login : AppCompatActivity() {
 
 
-
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,22 +50,26 @@ class Activity_login : AppCompatActivity() {
             }
         }
     }
-    fun onClickMusicLista(view:View?){
+
+    fun onClickMusicLista(view: View?) {
         val intent = Intent(this, Activity_menu::class.java)
         startActivity(intent)
     }
+
     fun onClickCrearCuenta(view: View?) {
-        val intent = Intent(this,
-            Activity_crearcuenta::class.java)
+        val intent = Intent(
+            this,
+            Activity_crearcuenta::class.java
+        )
         startActivity(intent)
     }
+
     //Validar que los campos no sean nulos
     fun validarUsuario(): Boolean {
         try {
             var validaok = false
             //-- El email es un valor requerido
-            if (binding.tvUsername.text?.length?.equals(0)!!)
-            {
+            if (binding.tvUsername.text?.length?.equals(0)!!) {
                 binding.tvUsername.requestFocus()
                 binding.tvUsername.setError("Debe ingresar su correo electrónico")
                 return validaok
@@ -81,7 +84,7 @@ class Activity_login : AppCompatActivity() {
             return validaok
         } catch (e: Exception) {
             e.message?.let { Log.e("Error en valida", it) };
-            return false;
+            return false
         }
     }
 }

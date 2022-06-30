@@ -8,7 +8,7 @@
     tools:context=".View.Activity_splashscreen"
     android:background="@drawable/descarga">
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/imglogo"
         android:layout_width="213dp"
         android:layout_height="234dp"

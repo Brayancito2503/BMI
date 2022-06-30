@@ -10,4 +10,7 @@
     <corners
         android:radius="20dp"/>
 
+    <item android:drawable="@drawable/hombre_pequenia"
+        android:state_checked="false"></item>
+
 </shape>

@@ -1,6 +1,11 @@
 package com.example.pesoapp.View
+
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,25 +13,29 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.compose.ui.node.getOrAddAdapter
+import com.airbnb.lottie.LottieAnimationView
 import com.example.pesoapp.R
 import com.example.pesoapp.databinding.FragmentCalculadoraBinding
+import com.github.anastr.speedviewlib.components.Section
 import com.github.anastr.speedviewlib.components.Style
+import com.github.anastr.speedviewlib.components.note.Note
+import com.github.anastr.speedviewlib.components.note.TextNote
+import java.text.DecimalFormat
 import kotlin.math.pow
 import kotlin.properties.Delegates
 
 
-class Fragment_Calculadora : Fragment(){
+class Fragment_Calculadora : Fragment() {
 
     //Declaracion de variables
     private var fbinding: FragmentCalculadoraBinding? = null
     private val binding get() = fbinding!!
-    private var itemaltura by Delegates.notNull<Int>()
-    private var itempeso by Delegates.notNull<Int>()
+    private lateinit var itemaltura: String
+    private lateinit var itempeso: String
 
     var f1 = 0f
     var f2 = 0f
-
-    var item:String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,40 +61,69 @@ class Fragment_Calculadora : Fragment(){
                 medidasPeso
             )
         }
-        //Spinners
-        val SpinnerAltura= binding.spinner1altura
-        val SpinnerPeso= binding.spinner2peso
 
-        //Spinner para Estatura
-        if(SpinnerAltura!=null){
+        with(binding.autoCompleteTextView) {
+            setAdapter(adapterEstatura)
+            onItemClickListener = object : AdapterView.OnItemClickListener {
+                override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    itemaltura = p0?.getItemAtPosition(p2).toString()
 
-            SpinnerAltura.adapter=adapterEstatura
-
-            SpinnerAltura.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    itemaltura=p2 // Variable que captura el indice del spinner de altura
-                }
-
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-                    TODO("Not yet implemented")
+                    if (itemaltura == "cm" || itemaltura == "m") {
+                        binding.alturaTxt.isEnabled = true
+                    }
+//                        Toast.makeText(context, "hola Estatura $itemaltura", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-        //Spinner para peso
-        if(SpinnerPeso!=null){
 
-            SpinnerPeso.adapter=adapterPeso
+        with(binding.autoCompleteTextView2) {
+            setAdapter(adapterPeso)
+            onItemClickListener = object : AdapterView.OnItemClickListener {
+                override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    itempeso = p0?.getItemAtPosition(p2).toString()
 
-            SpinnerPeso.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    itempeso=p2 // Variable que captura el indice del spinner de peso
-                }
-
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-                    TODO("Not yet implemented")
+                    if (itempeso == "lb" || itempeso == "kg") {
+                        binding.pesoTxt.isEnabled = true
+                    }
+//                        Toast.makeText(context, "hola Peso $itempeso", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+
+//        val SpinnerAltura= binding.spinner1altura
+//        val SpinnerPeso= binding.spinner2peso
+
+
+//        //Spinner para Estatura
+//        if(SpinnerAltura!=null){
+//
+//            SpinnerAltura.adapter=adapterEstatura
+//
+//            SpinnerAltura.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
+//                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+//                    itemaltura=p2 // Variable que captura el indice del spinner de altura
+//                }
+//
+//                override fun onNothingSelected(p0: AdapterView<*>?) {
+//                    TODO("Not yet implemented")
+//                }
+//            }
+//        }
+//        //Spinner para peso
+//        if(SpinnerPeso!=null){
+//
+//            SpinnerPeso.adapter=adapterPeso
+//
+//            SpinnerPeso.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
+//                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//                    itempeso=position // Variable que captura el indice del spinner de peso
+//                }
+//
+//                override fun onNothingSelected(p0: AdapterView<*>?) {
+//                    TODO("Not yet implemented")
+//                }
+//            }
+//        }
 
 
         //secciones de la grafica
@@ -95,65 +133,183 @@ class Fragment_Calculadora : Fragment(){
         speedometer.sections[0].color = Color.BLUE
         speedometer.sections[1].color = Color.GREEN
         speedometer.sections[2].color = Color.RED
+        speedometer.clearSections()
+
+        speedometer.addSections(
+            Section(0f, .45f, Color.rgb(33,165,243))
+            , Section(.451f, .624f, Color.rgb(64,188,100))
+            , Section(.625f, 1f, Color.rgb(251,83,70))
+
+        )
+//        , Section(.75F, .843F, Color.rgb(251,83,70))
+//        , Section(.845F, 1F, Color.rgb(251,83,70))
+        speedometer.minSpeed = 0F
+        speedometer.maxSpeed = 40F
 //        speedometer.clearSections()
-//        speedometer.addSections(
-//            Section(0f, .46f, Color.LTGRAY)
-//            , Section(.46f, .625f, Color.YELLOW)
-//            , Section(.625f, 1f, Color.BLUE)
-//        )
 //
-//        speedometer.speedometerWidth = 80F
+//        speedometer.addSections(
+//            Section(0F, .45f, Color.BLUE),
+//            Section(.454f, .623f, Color.GREEN),
+//            Section(.625f, 1f, Color.RED)
 
+//        )
+        var like = false
+        speedometer.speedometerWidth = 85F
 
-        binding.btnNombre.setOnClickListener{
+        binding.btnNombre.setOnClickListener {
             f1 = 2.7f
             f2 = 47.75f
         }
 
-        binding.btnMujer.setOnClickListener{
+        binding.btnMujer.setOnClickListener {
             f1 = 2.25f
             f2 = 45f
+
         }
+
 
         binding.btnConfirmar.setOnClickListener {
-            val speedometer = binding.speedometer
-            val lblPi = binding.pilbl
-            val lblInc = binding.bmibl
-            val txtPeso = binding.pesoTxt
-            val txtAltura = binding.alturaTxt
-            val peso = txtPeso.text.toString().toFloat()
-            val altura = txtAltura.text.toString().toFloat()
-            var resultado = peso / (altura / 100).pow(2)
-            var pi =((((altura - 152.4) / 2.54) * f1) + f2)
 
-            //Imprime los valores de indice de cada spinner
-            Toast.makeText(context," Spinner altura indice es: $itemaltura",Toast.LENGTH_SHORT).show()
-            Toast.makeText(context,"Spinner peso indice es: $itempeso",Toast.LENGTH_SHORT).show()
+            like = likeAnimation(binding.btnConfirmar, R.raw.botn, like)
+            if (validarCampos().equals(true)) {
+                val txtPeso = binding.pesoTxt
+                val txtAltura = binding.alturaTxt
+                val peso = txtPeso.text.toString().toFloat()
+                val altura = txtAltura.text.toString().toFloat()
+                var resultado: Float
+                var pi: Double
 
+                //altura == cm && Peso == lb
+                if (itemaltura == "cm" && itempeso == "lb") {
+                    resultado = (peso / 2.2F) / (altura / 100).pow(2)
+                    pi = ((((altura - 152.4) / 2.54) * f1) + f2)
+                    Toast.makeText(context, "El resultado es $resultado", Toast.LENGTH_SHORT).show()
+                    resultados(resultado, pi)
+                }
+                //altura == cm && Peso == kg
+                if (itemaltura == "cm" && itempeso == "kg") {
+                    resultado = peso / (altura / 100).pow(2)
+                    pi = ((((altura - 152.4) / 2.54) * f1) + f2)
+                    Toast.makeText(context, "El resultado es $resultado", Toast.LENGTH_SHORT).show()
+                    resultados(resultado, pi)
+                }
+                //altura == m && Peso == lb
+                if (itemaltura == "m" && itempeso == "lb") {
+                    resultado = (peso / 2.2F) / altura.pow(2)
+                    pi = (((((altura * 100) - 152.4) / 2.54) * f1) + f2)
+                    Toast.makeText(context, "El resultado es $resultado", Toast.LENGTH_SHORT).show()
+                    resultados(resultado, pi)
+                }
+                //altura == m && Peso == kg
+                if (itemaltura == "m" && itempeso == "kg") {
+                    resultado = peso / altura.pow(2)
+                    pi = (((((altura * 100) - 152.4) / 2.54) * f1) + f2)
+                    Toast.makeText(context, "El resultado es $resultado", Toast.LENGTH_SHORT).show()
+                    resultados(resultado, pi)
+                }
 
-
-            if (resultado < 18) {
-                lblInc.text = "Debajo de lo normal $resultado"
-            } else if (resultado >= 18.1 && resultado <= 24.9) {
-                lblInc.text = "Peso Normal $resultado"
-            } else if (resultado >= 25 && resultado <= 29.9) {
-                lblInc.text = "Sobre Peso $resultado"
-            } else if (resultado >= 30 && resultado <= 34.9) {
-                lblInc.text = "Obesidad tipo I $resultado"
-            } else if (resultado > 35) {
-                lblInc.text = "Obesidad tipo II $resultado"
+                //Imprime los valores de indice de cada spinner
+                Toast.makeText(context, " Spinner altura esta en: $itemaltura", Toast.LENGTH_SHORT)
+                    .show()
+                Toast.makeText(context, "Spinner peso esta en: $itempeso", Toast.LENGTH_SHORT)
+                    .show()
             }
-            lblPi.text = "$pi"
-            Toast.makeText(context,"$peso",Toast.LENGTH_SHORT).show()
-            speedometer.speedTo(resultado, 4000)
+
+        }
+        return view
+    }
+
+    private fun likeAnimation(imageView: LottieAnimationView,
+                              animation: Int,
+                              like: Boolean) : Boolean {
+
+        if (!like) {
+            imageView.setAnimation(animation)
+            imageView.playAnimation()
+            imageView.animate().setListener(object : AnimatorListenerAdapter(){
+
+            })
+
+        } else {
+            imageView.animate()
+                .alpha(0f)
+                .setDuration(1000)
+                .setListener(object : AnimatorListenerAdapter() {
+
+                    override fun onAnimationEnd(animator: Animator) {
+
+                        imageView.setImageResource(R.drawable.custom_bottom)
+                        imageView.alpha = 1f
+                    }
+
+                })
+
 
         }
 
-        return view
+        return !like
+    }
 
+    fun Nota(Texto: String) {
+        val speedometer = binding.speedometer
+        val note = TextNote(requireContext(), Texto)
+            .setPosition(Note.Position.CenterSpeedometer) // position of Note.
+            .setAlign(Note.Align.Top) // Note Align.
+            .setTextTypeFace(Typeface.create(Typeface.DEFAULT, Typeface.BOLD_ITALIC)) // style, or font.
+            .setBackgroundColor(Color.parseColor("#fce3c8")) // change dialog color.
+            .setCornersRound(20f) // dialog's rectangle Corners Round.
+            .setTextSize(speedometer.dpTOpx(10f))
+
+        speedometer.addNote(note, 8000)
     }
 
 
+    fun resultados(resultado: Float, pi: Double) {
 
+        val speedometer = binding.speedometer
+        val lblPi = binding.pilbl
+        val lblInc = binding.bmibl
+
+        if (resultado < 18) {
+            lblInc.text = "Debajo de lo normal $resultado"
+            Nota("Delgadez")
+        } else if (resultado >= 18.1 && resultado <= 24.9) {
+            lblInc.text = "Peso Normal $resultado"
+            Nota("Normal")
+        } else if (resultado >= 25 && resultado <= 29.9) {
+            lblInc.text = "Sobre Peso $resultado"
+            Nota("Sobre Peso")
+        } else if (resultado >= 30 && resultado <= 34.9) {
+            lblInc.text = "Obesidad tipo I $resultado"
+            Nota("Obesidad I")
+        } else if (resultado > 35) {
+            lblInc.text = "Obesidad tipo II $resultado"
+            Nota("Obesidad II")
+        }
+
+        lblPi.text = "${pi.toInt()}"
+        speedometer.speedTo(resultado, 4000)
+    }
+
+    fun validarCampos(): Boolean {
+        try {
+            var validar = false
+            if (binding.alturaTxt.text?.length?.equals(0)!!) {
+                binding.alturaTxt.requestFocus()
+                binding.alturaTxt.setError("Debe ingresar valores")
+                return validar
+            }
+            if (binding.pesoTxt.text?.length?.equals(0)!!) {
+                binding.pesoTxt.requestFocus()
+                binding.pesoTxt.setError("Debe ingresar valores")
+                return validar
+            }
+            validar = true
+            return validar
+        } catch (e: Exception) {
+            e.message?.let { Log.e("Error en validar", it) };
+            return false
+        }
+    }
 }
 

@@ -20,7 +20,7 @@
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary bratnd color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">#FF9E7251</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
     </style>

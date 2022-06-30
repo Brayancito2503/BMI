@@ -15,6 +15,25 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/BMI/app/src/main/res/menu/menu_bmi.xml" value="0.1" />
         <entry key="..\:/Users/Harito uwu/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_main.xml" value="0.19067028985507245" />
         <entry key="..\:/Users/Harito uwu/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_recordatorio.xml" value="0.19067028985507245" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/drawable-v24/custom_bottom.xml" value="0.152" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/drawable-v24/efecto_bottom.xml" value="0.152" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/drawable/imagen.xml" value="0.2545" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/drawable/nort.xml" value="0.1895" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_calculadora.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_crearcuenta.xml" value="0.264" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_menu.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_recordatorio.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/activity_splashscreen.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/fragment__calculadora.xml" value="0.264" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/fragment_fragmento_calculadora.xml" value="0.1" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/fragment_recomen_detalle.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/fragment_recomendacion.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/fragment_sugerencias.xml" value="0.16983695652173914" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/item_recomendacion.xml" value="0.46835443037974683" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/list_item.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/layout/list_item_peso.xml" value="0.25" />
+        <entry key="..\:/Users/braya/AndroidStudioProjects/BMI/app/src/main/res/menu/menu_bmi.xml" value="0.25" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/drawable-v24/custom_bottom.xml" value="0.224" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/drawable-v24/efecto_boton_mujer.xml" value="0.1355" />
         <entry key="..\:/Users/braya/AndroidStudioProjects/PesoApp/app/src/main/res/drawable-v24/efecto_bottom.xml" value="0.1355" />

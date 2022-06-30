@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"
+    android:innerRadius="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <stroke
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="@dimen/alto1"
+        android:background="@color/red_flat">
+
+        <ImageView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/imgFoto"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@color/red_flat"
+            android:scaleType="centerCrop"
+            />
+    </stroke>
+
+</shape>

@@ -21,37 +21,41 @@
             android:id="@+id/btnNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="16dp"
             android:button="@drawable/efecto_bottom"
             android:onClick="btnHombreOnClick"
-
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/barra"
+            android:backgroundTint="#686868" />
 
         <RadioButton
             android:id="@+id/btnMujer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="16dp"
             android:button="@drawable/efecto_boton_mujer"
             android:onClick="btnMujerOnClick"
             app:layout_constraintLeft_toRightOf="@id/btnNombre"
             app:layout_constraintTop_toTopOf="parent" />
+
+
     </RadioGroup>
+
 
 
         <EditText
             android:id="@+id/alturaTxt"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:hint="Altura"
-            android:enabled="true"
+            android:hint="Estatura"
+            android:enabled="false"
             android:inputType="numberDecimal"
             android:minHeight="48dp"
             app:layout_constraintTop_toBottomOf="@+id/radiogrupo"
@@ -62,20 +66,20 @@
 
     <EditText
         android:id="@+id/pesoTxt"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:ems="10"
         android:hint="Peso"
-        android:enabled="true"
+        android:enabled="false"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/alturaTxt" />
 
 
-    <Button
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/btnConfirmar"
         android:layout_width="311dp"
         android:layout_height="61dp"
@@ -152,39 +156,80 @@
         app:sv_indicatorColor="#681531"
         app:sv_indicatorWidth="15dp"
 
-        app:sv_markHeight="0dp"
+        app:sv_markHeight="10dp"
 
 
-        app:sv_maxSpeed="30"
-        app:sv_minSpeed="16"
         app:sv_speedometerMode="TOP"
-        app:sv_speedometerWidth="35dp"
+        app:sv_speedometerWidth="40dp"
         app:sv_textColor="@color/white"
         app:sv_unit="IMC"
         app:sv_unitSpeedInterval="10dp"
         app:sv_unitUnderSpeedText="true"
         app:sv_withTremble="false" />
 
-    <Spinner
-        android:id="@+id/spinner1altura"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/spiner"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toEndOf="@+id/alturaTxt"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toRightOf="@id/alturaTxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/radiogrupo">
 
-    <Spinner
-        android:id="@+id/spinner2peso"
-        android:layout_width="wrap_content"
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Estatura"
+                android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toEndOf="@+id/pesoTxt"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="76dp"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toRightOf="@id/alturaTxt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/spiner">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Peso"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!--        <Spinner-->
+<!--        android:id="@+id/spinner1altura"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="136dp"-->
+<!--        android:minHeight="48dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.503"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/alturaTxt"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--            style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"/>-->
+
+<!--    <Spinner-->
+<!--        android:id="@+id/spinner2peso"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="212dp"-->
+<!--        android:minHeight="48dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.503"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/pesoTxt"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"-->
+<!--        />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

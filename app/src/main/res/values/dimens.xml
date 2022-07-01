@@ -14,4 +14,5 @@
     <dimen name="alto2">20dp</dimen>
     <dimen name="alto3">3dp</dimen>
     <dimen name="alto4">30dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

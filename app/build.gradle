@@ -49,9 +49,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.google.android.material:material:1.5.0'
 
+    //walkthrough
+    implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
     //Material Component
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    implementation 'me.relex:circleindicator:2.1.6'
 
     //Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
@@ -87,6 +92,8 @@ dependencies {
     // Live Data y ViewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+
 
     //gldie
     implementation 'com.github.bumptech.glide:glide:4.13.2'

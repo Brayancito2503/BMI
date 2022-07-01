@@ -35,7 +35,7 @@ class Activity_splashscreen : AppCompatActivity() {
 
         var like = false
 
-        likeAnimation(binding.imglogo, R.raw.female_avatar, like)
+        likeAnimation(binding.imglogo, R.raw.pesas2, like)
 
 
     }

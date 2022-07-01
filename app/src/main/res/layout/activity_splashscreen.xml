@@ -10,9 +10,11 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/imglogo"
-        android:layout_width="213dp"
-        android:layout_height="234dp"
-        android:src="@drawable/bmilogo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="1"
+        app:srcCompat="@raw/pesas2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

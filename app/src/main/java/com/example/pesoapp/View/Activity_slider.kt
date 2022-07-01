@@ -12,5 +12,6 @@ class Activity_slider : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_slider)
 
+
     }
 }

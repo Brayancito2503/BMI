@@ -12,18 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PesoApp">
-        <activity
-            android:name=".Activity_slider"
-            android:exported="false" />
-        <activity
-            android:name=".mainscreen"
-            android:exported="false"
-            android:label="@string/title_activity_mainscreen"
-            android:theme="@style/Theme.PesoApp.NoActionBar" />
-        <activity
-            android:name=".Activity_introslider"
-            android:exported="false" />
-
         <receiver
             android:name=".View.Notification"
             android:enabled="true" />

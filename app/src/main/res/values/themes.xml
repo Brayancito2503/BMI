@@ -16,7 +16,7 @@
 
     <style name="NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/login</item>
+        <item name="colorPrimary">#FF9E7251</item>
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary bratnd color. -->

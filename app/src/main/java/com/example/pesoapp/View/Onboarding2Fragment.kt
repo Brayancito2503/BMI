@@ -27,7 +27,7 @@ class Onboarding2Fragment : Fragment() {
         if (!like) {
             imageView.setAnimation(animation)
             imageView.playAnimation()
-            imageView.repeatCount=3
+            imageView.repeatCount=5
         }
         return !like
     }

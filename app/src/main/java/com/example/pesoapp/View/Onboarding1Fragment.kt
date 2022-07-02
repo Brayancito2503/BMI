@@ -21,17 +21,7 @@ class Onboarding1Fragment : Fragment() {
 
     }
 
-    private fun likeAnimation(imageView: LottieAnimationView,
-                              animation: Int,
-                              like: Boolean) : Boolean {
 
-        if (!like) {
-            imageView.setAnimation(animation)
-            imageView.playAnimation()
-            imageView.repeatCount=3
-        }
-        return !like
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,9 +33,21 @@ class Onboarding1Fragment : Fragment() {
         val view = binding.root
         var like = false
 
-        likeAnimation(binding.imglogo, R.raw.bmi, like)
+        likeAnimation(binding.imgView, R.raw.bmi, like)
 
         return view
+    }
+
+    private fun likeAnimation(imageView: LottieAnimationView,
+                              animation: Int,
+                              like: Boolean) : Boolean {
+
+        if (!like) {
+            imageView.setAnimation(animation)
+            imageView.playAnimation()
+            imageView.repeatCount = 5
+        }
+        return !like
     }
 
 

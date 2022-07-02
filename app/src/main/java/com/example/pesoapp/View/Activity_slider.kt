@@ -15,8 +15,10 @@ class Activity_slider : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        //para el view pager
         binding.viewpager.adapter = ViewPagerAdapter(supportFragmentManager)
 
+        //para el idicador
         binding.indicator.setViewPager(binding.viewpager)
     }
 }

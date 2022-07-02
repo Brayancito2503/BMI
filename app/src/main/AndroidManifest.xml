@@ -12,6 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PesoApp">
+        <activity
+            android:name=".View.Activity_slider"
+            android:exported="false"
+            android:theme="@style/NoActionBar">
+
+        </activity>
+<!--        <activity-->
+<!--            android:name=".mainscreen"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_mainscreen"-->
+<!--            android:theme="@style/Theme.PesoApp.NoActionBar" />-->
+<!--        <activity-->
+<!--            android:name=".View.Activity_introslider"-->
+<!--            android:exported="false" />-->
+
         <receiver
             android:name=".View.Notification"
             android:enabled="true" />
@@ -30,20 +45,15 @@
             android:theme="@style/NoActionBar" />
         <activity
             android:name=".View.Activity_splashscreen"
-            android:exported="false"
-            android:theme="@style/NoActionBar">
-        </activity>
-        <activity
-            android:name=".View.Activity_slider"
             android:exported="true"
-            android:theme="@style/NoActionBar" >
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
+        </activity>
         <activity
             android:name=".View.Activity_crearcuenta"
             android:exported="false"

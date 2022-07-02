@@ -3,7 +3,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenLocal()
         mavenCentral()
+        maven { url 'https://www.myget.org/F/abtsoftware/maven' }
     }
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1"

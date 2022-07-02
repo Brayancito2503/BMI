@@ -33,6 +33,8 @@ class Fragment_Calculadora : Fragment() {
     private val binding get() = fbinding!!
     private lateinit var itemaltura: String
     private lateinit var itempeso: String
+    var resultado: Float = 0.0f
+    lateinit var resultadofinal:ArrayList<Float>
 
     var f1 = 0f
     var f2 = 0f
@@ -106,101 +108,63 @@ class Fragment_Calculadora : Fragment() {
             Section(.625f, 1f, Color.rgb(251, 83, 70))
 
         )
-//        , Section(.75F, .843F, Color.rgb(251,83,70))
-//        , Section(.845F, 1F, Color.rgb(251,83,70))
         speedometer.minSpeed = 0F
         speedometer.maxSpeed = 40F
-//        speedometer.clearSections()
-//
-//        speedometer.addSections(
-//            Section(0F, .45f, Color.BLUE),
-//            Section(.454f, .623f, Color.GREEN),
-//            Section(.625f, 1f, Color.RED)
-
-//        )
-        var like = false
         speedometer.speedometerWidth = 120F
-
-
+        //Funcion Click Radio Button Hombre
         binding.btnNombre.setOnClickListener {
             f1 = 2.7f
             f2 = 47.75f
-            binding.btnNombre.setError(null)
-            binding.btnMujer.setError(null)
+            binding.btnNombre.error = null
+            binding.btnMujer.error = null
         }
-
+        //Funcion Click Radio Button Mujer
         binding.btnMujer.setOnClickListener {
             f1 = 2.25f
             f2 = 45f
-            binding.btnNombre.setError(null)
-            binding.btnMujer.setError(null)
+            binding.btnNombre.error = null
+            binding.btnMujer.error = null
         }
 
+        //Funcion Boton Confirmar
         binding.btnConfirmar.setOnClickListener {
 
-
             if (validarCampos()) {
-
                 val txtPeso = binding.pesoTxt
                 val txtAltura = binding.alturaTxt
                 val peso = txtPeso.text.toString().toFloat()
                 val altura = txtAltura.text.toString().toFloat()
-                var resultado: Float
                 var pi: Double
 
                 //altura == cm && Peso == lb
-                if (itemaltura == "cm" && itempeso == "lb") {
+                if (itemaltura == "cm" && itempeso == "lb")
+                {
                     resultado = (peso / 2.2F) / (altura / 100).pow(2)
                     pi = ((((altura - 152.4) / 2.54) * f1) + f2) * 2.2F
-//                    Toast.makeText(context, "El resultado es $resultado", Toast.LENGTH_SHORT).show()
                     resultados(resultado, pi, "Libras")
                 }
                 //altura == cm && Peso == kg
                 if (itemaltura == "cm" && itempeso == "kg") {
                     resultado = peso / (altura / 100).pow(2)
                     pi = ((((altura - 152.4) / 2.54) * f1) + f2)
-//                    Toast.makeText(context, "El resultado es $resultado", Toast.LENGTH_SHORT).show()
                     resultados(resultado, pi, "Kilos")
                 }
                 //altura == m && Peso == lb
                 if (itemaltura == "m" && itempeso == "lb") {
                     resultado = (peso / 2.2F) / altura.pow(2)
                     pi = (((((altura * 100) - 152.4) / 2.54) * f1) + f2) * 2.2F
-//                    Toast.makeText(context, "El resultado es $resultado", Toast.LENGTH_SHORT).show()
                     resultados(resultado, pi, "Libras")
                 }
                 //altura == m && Peso == kg
                 if (itemaltura == "m" && itempeso == "kg") {
                     resultado = peso / altura.pow(2)
                     pi = (((((altura * 100) - 152.4) / 2.54) * f1) + f2)
-//                    Toast.makeText(context, "El resultado es $resultado", Toast.LENGTH_SHORT).show()
                     resultados(resultado, pi,"Kilos")
                 }
-                //Imprime los valores de indice de cada spinner
-//                Toast.makeText(context, " Spinner altura esta en: $itemaltura", Toast.LENGTH_SHORT)
-//                    .show()
-//                Toast.makeText(context, "Spinner peso esta en: $itempeso", Toast.LENGTH_SHORT)
-//                    .show()
             }
-
         }
+        resultadofinal.add(resultado)
         return view
-    }
-
-    private fun likeAnimation(
-        imageView: LottieAnimationView,
-        animation: Int,
-        like: Boolean
-    ): Boolean {
-
-        if (!like) {
-            imageView.setAnimation(animation)
-            imageView.playAnimation()
-
-//            binding.btnConfirmar.visibility = 1
-        }
-
-        return like
     }
 
     fun Nota(Texto: String) {
@@ -217,7 +181,6 @@ class Fragment_Calculadora : Fragment() {
             .setBackgroundColor(Color.parseColor("#fce3c8")) // change dialog color.
             .setCornersRound(20f) // dialog's rectangle Corners Round.
             .setTextSize(speedometer.dpTOpx(20f))
-
         speedometer.addNote(note, 8000)
     }
 
@@ -266,26 +229,25 @@ class Fragment_Calculadora : Fragment() {
                 true
             } else {
                 binding.alturaTxt.requestFocus()
-                binding.alturaTxt.setError("Debe ingresar valores")
+                binding.alturaTxt.error = "Debe ingresar valores"
                 false
             }
             validar2 = if (binding.pesoTxt.text.isNotEmpty()) {
                 true
             } else {
                 binding.pesoTxt.requestFocus()
-                binding.pesoTxt.setError("Debe ingresar valores")
+                binding.pesoTxt.error = "Debe ingresar valores"
                 false
             }
             validar3 = if (binding.btnNombre.isChecked || binding.btnMujer.isChecked) {
                 true
             } else {
-                binding.btnNombre.setError("Seleccione una opcion")
-                binding.btnMujer.setError("Seleccione una opcion")
+                binding.btnNombre.error = "Seleccione una opcion"
+                binding.btnMujer.error = "Seleccione una opcion"
                 binding.radiogrupo.requestFocus()
 
                 false
             }
-
             if ((validar1 && validar2 && validar3) == true) {
 
                 validatodo = true
@@ -293,7 +255,7 @@ class Fragment_Calculadora : Fragment() {
 
             return validatodo
         } catch (e: Exception) {
-            e.message?.let { Log.e("Error en validar", it) };
+            e.message?.let { Log.e("Error en validar", it) }
             return false
         }
     }

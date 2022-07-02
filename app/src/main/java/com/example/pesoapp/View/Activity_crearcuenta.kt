@@ -16,8 +16,7 @@ class Activity_crearcuenta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         //HOLA
         super.onCreate(savedInstanceState)
-        binding =
-            ActivityCrearcuentaBinding.inflate(layoutInflater)
+        binding = ActivityCrearcuentaBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 //--------------------------
@@ -30,11 +29,12 @@ class Activity_crearcuenta : AppCompatActivity() {
         }
     }
 
-    fun addCuentaUsuario()
-    {
+    fun addCuentaUsuario() {
         val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
-        firebaseAuth.createUserWithEmailAndPassword(binding.tvEmailCuenta.text.toString(),
-            binding.tvPasswordCuenta.text.toString())
+        firebaseAuth.createUserWithEmailAndPassword(
+            binding.tvEmailCuenta.text.toString(),
+            binding.tvPasswordCuenta.text.toString()
+        )
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "El usuario ha sido creado", Toast.LENGTH_SHORT).show();
@@ -44,13 +44,13 @@ class Activity_crearcuenta : AppCompatActivity() {
                 }
             }
     }
+
     //Validar que los campos no sean nulos
     fun valida(): Boolean {
         try {
             var validaok: Boolean = false
 //-- El email es un valor requerido
-            if (binding.tvEmailCuenta.length()?.equals(0)!!)
-            {
+            if (binding.tvEmailCuenta.length()?.equals(0)!!) {
                 binding.tvEmailCuenta.requestFocus()
                 binding.tvEmailCuenta.setError("Email es un valor requerido")
                 return validaok
@@ -64,8 +64,7 @@ class Activity_crearcuenta : AppCompatActivity() {
             }
 //La confirmación de contraseña es un valor requerido
             if
-                    (binding.tvConfirmarContrasenia.text?.length?.equals(0)!!)
-            {
+                    (binding.tvConfirmarContrasenia.text?.length?.equals(0)!!) {
                 binding.tvConfirmarContrasenia.requestFocus()
                 binding.tvConfirmarContrasenia.setError("Debe ingresar la confirmación de contraseña")
                 return validaok
@@ -74,10 +73,9 @@ class Activity_crearcuenta : AppCompatActivity() {
             val strpassword: String = if
                                               (binding.tvConfirmarContrasenia.text != null)
                 binding.tvPasswordCuenta.text.toString() else ""
-            val strpasswordconfirmar:String = if (binding.tvConfirmarContrasenia.text != null)
+            val strpasswordconfirmar: String = if (binding.tvConfirmarContrasenia.text != null)
                 binding.tvConfirmarContrasenia.text.toString() else ""
-            if (strpassword.equals(strpasswordconfirmar) == false)
-            {
+            if (strpassword.equals(strpasswordconfirmar) == false) {
                 binding.tvPasswordCuenta.requestFocus()
                 binding.tvPasswordCuenta.setError("El Password y la confirmación deben coincidir")
                 return validaok

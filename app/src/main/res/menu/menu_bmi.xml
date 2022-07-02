@@ -13,8 +13,10 @@
 
     <item android:id="@+id/mfragment_sugerencia"
         android:title="Sugerencias"
-        android:icon="@drawable/sugerencia">
+        android:icon="@drawable/sugerencia"/>
 
-    </item>
+    <item android:id="@+id/mfragment_histo"
+        android:title="Historial"
+        android:icon="@drawable/grafico"/>
 
 </menu>

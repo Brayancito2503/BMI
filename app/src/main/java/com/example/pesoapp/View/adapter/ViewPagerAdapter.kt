@@ -15,12 +15,14 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(
         Onboarding3Fragment()
     )
 
+    override fun getItem(position: Int): Fragment {
+        return fragment[position]
+    }
+
     override fun getCount(): Int {
         return fragment.size
     }
 
-    override fun getItem(position: Int): Fragment {
-        return fragment[position]
-    }
+
 
 }

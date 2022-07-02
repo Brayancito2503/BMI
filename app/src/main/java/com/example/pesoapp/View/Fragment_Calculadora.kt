@@ -154,7 +154,7 @@ class Fragment_Calculadora : Fragment() {
 
 //        )
         var like = false
-        speedometer.speedometerWidth = 85F
+        speedometer.speedometerWidth = 65F
 
         binding.btnNombre.setOnClickListener {
             f1 = 2.7f
@@ -170,8 +170,10 @@ class Fragment_Calculadora : Fragment() {
 
         binding.btnConfirmar.setOnClickListener {
 
-            like = likeAnimation(binding.btnConfirmar, R.raw.botn, like)
+
             if (validarCampos().equals(true)) {
+
+
                 val txtPeso = binding.pesoTxt
                 val txtAltura = binding.alturaTxt
                 val peso = txtPeso.text.toString().toFloat()
@@ -226,28 +228,11 @@ class Fragment_Calculadora : Fragment() {
         if (!like) {
             imageView.setAnimation(animation)
             imageView.playAnimation()
-            imageView.animate().setListener(object : AnimatorListenerAdapter(){
 
-            })
-
-        } else {
-            imageView.animate()
-                .alpha(0f)
-                .setDuration(1000)
-                .setListener(object : AnimatorListenerAdapter() {
-
-                    override fun onAnimationEnd(animator: Animator) {
-
-                        imageView.setImageResource(R.drawable.custom_bottom)
-                        imageView.alpha = 1f
-                    }
-
-                })
-
-
+//            binding.btnConfirmar.visibility = 1
         }
 
-        return !like
+        return like
     }
 
     fun Nota(Texto: String) {
@@ -304,6 +289,20 @@ class Fragment_Calculadora : Fragment() {
                 binding.pesoTxt.setError("Debe ingresar valores")
                 return validar
             }
+            if(binding.btnNombre.isChecked || binding.btnMujer.isChecked){
+
+
+            }else if(binding.btnNombre.isChecked == false){
+                binding.btnNombre.requestFocus()
+                binding.btnNombre.setError("Debe Selecionar una opcion")
+                return validar
+            }else if(binding.btnMujer.isChecked == false){
+                binding.btnNombre.requestFocus()
+                binding.btnNombre.setError("Debe Selecionar una opcion")
+                return validar
+            }
+
+
             validar = true
             return validar
         } catch (e: Exception) {

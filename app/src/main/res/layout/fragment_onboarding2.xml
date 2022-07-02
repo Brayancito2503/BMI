@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/grafic"
+            android:src="@drawable/bmi"
             android:adjustViewBounds="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>

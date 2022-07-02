@@ -10,6 +10,10 @@
     <string name="strCreaUna">Cree una aquí</string>
     <string name="hemail">Email</string>
     <string name="asunto">Asunto</string>
+    <string name="Skip">Saltar</string>
+    <string name="infoBmi">Con nuestra calculadora BMI te ayudaremos a identificar tu índice de masa corporal</string>
+    <string name="infoPeso">Se ubicará tu índice de masa corporal en una grafica, así como también se indicará tu peso ideal</string>
+    <string name="infoSalud">Podrás añadir recordatorios para tus correctas horas de comida pero también te mostraremos algunas recomendaciones para cuidar tu salud y alcanzar ese peso ideal que te propones</string>
     <string name="descripcion">Descripción</string>
     <string name="hConfirmarPassword">Confirmar password</string>
     <string name="strCrearCuenta">Crear cuenta</string>

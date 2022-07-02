@@ -40,17 +40,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="BMI"
+                android:text="¿Calculadora BMI?"
+                android:fontFamily="@font/comisanbold"
+                android:textColor="@color/cafeskip"
                 android:textSize="22sp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
+                android:layout_marginBottom="10dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:text="prueba de todo lo que se tiene que escribir en este apartado q será la explicación o introducción de app"/>
+                android:text="@string/infoBmi"
+                android:fontFamily="@font/comicsan"/>
 
         </LinearLayout>
     </RelativeLayout>

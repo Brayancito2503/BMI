@@ -28,7 +28,7 @@ class Activity_splashscreen : AppCompatActivity() {
 
         val handler = Handler()
         handler.postDelayed({ // Do something after 5s = 5000ms
-            val intent = Intent(this,Activity_login::class.java)
+            val intent = Intent(this,Activity_slider::class.java)
             startActivity(intent)
             finish()
         }, 5000)

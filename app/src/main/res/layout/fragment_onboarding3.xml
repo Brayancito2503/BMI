@@ -3,24 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".View.Onboarding3Fragment">
+    tools:context=".View.Onboarding3Fragment"
+    android:background="@color/fondo">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/imglogo"
+            android:id="@+id/imgDiamante"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
             android:adjustViewBounds="true"
-            app:srcCompat="@raw/salud" />
+            android:src="@drawable/logoapp" />
 
         <LinearLayout
             android:layout_width="match_parent"

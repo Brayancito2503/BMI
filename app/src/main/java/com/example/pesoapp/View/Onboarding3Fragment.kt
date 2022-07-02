@@ -24,7 +24,7 @@ class Onboarding3Fragment : Fragment() {
         if (!like) {
             imageView.setAnimation(animation)
             imageView.playAnimation()
-            imageView.repeatCount=3
+            imageView.repeatCount=5
         }
         return !like
     }
@@ -39,7 +39,7 @@ class Onboarding3Fragment : Fragment() {
         val view = binding.root
         var like = false
 
-        likeAnimation(binding.imglogo, R.raw.salud, like)
+        likeAnimation(binding.imgDiamante, R.raw.salud, like)
 
         return view
     }

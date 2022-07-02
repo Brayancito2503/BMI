@@ -16,13 +16,14 @@ class Activity_slider : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.btnSkip.setOnClickListener {
-            startActivity(Intent(this,Activity_login::class.java))
-        }
+       binding.viewpager.adapter=ViewPagerAdapter(supportFragmentManager)
 
-        binding.viewpager.adapter=ViewPagerAdapter(supportFragmentManager)
-
-        binding.indicator.setViewPager(binding.viewpager)
+        /*val handler = Handler()
+        handler.postDelayed({ // Do something after 5s = 5000ms
+            val intent = Intent(this,Activity_login::class.java)
+            startActivity(intent)
+            finish()
+        }, 5000)*/
 
     }
 }

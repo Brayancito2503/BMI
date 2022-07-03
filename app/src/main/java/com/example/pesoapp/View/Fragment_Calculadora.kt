@@ -21,9 +21,14 @@ import com.github.anastr.speedviewlib.components.Section
 import com.github.anastr.speedviewlib.components.Style
 import com.github.anastr.speedviewlib.components.note.Note
 import com.github.anastr.speedviewlib.components.note.TextNote
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.utils.ColorTemplate
 import java.text.DecimalFormat
 import kotlin.math.pow
 import kotlin.properties.Delegates
+import kotlinx.android.synthetic.main.fragment__calculadora.*
 
 
 class Fragment_Calculadora : Fragment() {
@@ -34,7 +39,9 @@ class Fragment_Calculadora : Fragment() {
     private lateinit var itemaltura: String
     private lateinit var itempeso: String
     var resultado: Float = 0.0f
-    lateinit var resultadofinal:ArrayList<Float>
+    lateinit var linelist:ArrayList<Entry>
+    lateinit var lineDataSet: LineDataSet
+lateinit var lineData: LineData
 
     var f1 = 0f
     var f2 = 0f
@@ -46,9 +53,28 @@ class Fragment_Calculadora : Fragment() {
         // Inflate the layout for this fragment
         fbinding = FragmentCalculadoraBinding.inflate(layoutInflater)
         val view = binding.root
-
         val medidasEstatura = resources.getStringArray(R.array.Estatura)
         val medidasPeso = resources.getStringArray(R.array.Peso)
+
+        ///////////////////////////////////////////////////////////////////////
+        linelist= ArrayList()
+        linelist.add(Entry(10f,50f))
+        linelist.add(Entry(20f,100f))
+        linelist.add(Entry(30f,20f))
+        linelist.add(Entry(40f,30f))
+        linelist.add(Entry(50f,10f))
+
+        lineDataSet= LineDataSet(linelist,"Count")
+
+        lineData=LineData(lineDataSet)
+
+        binding.lineChart.data = lineData
+
+        lineDataSet.setColors(*ColorTemplate.JOYFUL_COLORS)
+        lineDataSet.valueTextColor=Color.BLUE
+        lineDataSet.valueTextSize=20f
+        //////////////////////////////////////////////////////////////////////////
+
         val adapterEstatura = context?.let {
             ArrayAdapter(
                 it,
@@ -63,6 +89,7 @@ class Fragment_Calculadora : Fragment() {
                 medidasPeso
             )
         }
+
 
         with(binding.autoCompleteTextView) {
             setAdapter(adapterEstatura)
@@ -163,7 +190,7 @@ class Fragment_Calculadora : Fragment() {
                 }
             }
         }
-        resultadofinal.add(resultado)
+        //resultadofinal.add(resultado)
         return view
     }
 

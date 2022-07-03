@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -36,6 +37,8 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir:"libs",include:["*.jar"])
+
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -106,14 +109,10 @@ dependencies {
     //viewPager
     implementation 'me.relex:circleindicator:2.1.6'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    //Sci
-    implementation (group: 'com.scichart.library', name: 'core', version: '3.0.0.4253', ext: 'aar')
-    implementation (group: 'com.scichart.library', name: 'data', version: '3.0.0.4253', ext: 'aar')
-    implementation (group: 'com.scichart.library', name: 'drawing', version: '3.0.0.4253', ext: 'aar')
-    implementation (group: 'com.scichart.library', name: 'charting3d', version: '3.0.0.4253', ext: 'aar')
-    implementation (group: 'com.scichart.library', name: 'charting', version: '3.0.0.4253', ext: 'aar')
-    implementation (group: 'com.scichart.library', name: 'extensions', version: '3.0.0.4253', ext: 'aar')
-    implementation (group: 'com.scichart.library', name: 'extensions3d', version: '3.0.0.4253', ext: 'aar')
+
+    //
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 
 
 

@@ -44,7 +44,7 @@ class Fragment_Calculadora : Fragment() {
     var resultado: Float = 0.0f
     lateinit var linelist:ArrayList<Entry>
     lateinit var lineDataSet: LineDataSet
-lateinit var lineData: LineData
+    lateinit var lineData: LineData
 
     var f1 = 0f
     var f2 = 0f
@@ -61,21 +61,10 @@ lateinit var lineData: LineData
 
         ///////////////////////////////////////////////////////////////////////
         linelist= ArrayList()
-        linelist.add(Entry(10f,50f))
-        linelist.add(Entry(20f,100f))
-        linelist.add(Entry(30f,20f))
-        linelist.add(Entry(40f,30f))
-        linelist.add(Entry(50f,10f))
+        var dia=0f
 
-        lineDataSet= LineDataSet(linelist,"Count")
 
-        lineData=LineData(lineDataSet)
 
-        binding.lineChart.data = lineData
-
-        lineDataSet.setColors(*ColorTemplate.JOYFUL_COLORS)
-        lineDataSet.valueTextColor=Color.BLUE
-        lineDataSet.valueTextSize=20f
         //////////////////////////////////////////////////////////////////////////
 
         val adapterEstatura = context?.let {
@@ -165,7 +154,25 @@ lateinit var lineData: LineData
                 val peso = txtPeso.text.toString().toFloat()
                 val altura = txtAltura.text.toString().toFloat()
                 var pi: Double
+                dia=dia+1
 
+
+                if(dia==31f){
+                    dia=1f
+                    linelist.clear()
+                }
+
+                linelist.add(Entry(dia,peso))
+
+                lineDataSet= LineDataSet(linelist,"Su peso")
+
+                lineData=LineData(lineDataSet)
+
+                binding.lineChart.data = lineData
+
+                lineDataSet.setColors(*ColorTemplate.JOYFUL_COLORS)
+                lineDataSet.valueTextColor=Color.BLUE
+                lineDataSet.valueTextSize=20f
                 //altura == cm && Peso == lb
                 if (itemaltura == "cm" && itempeso == "lb")
                 {

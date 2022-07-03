@@ -4,56 +4,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".View.Onboarding2Fragment">
+    tools:context=".View.Onboarding2Fragment"
+    android:background="@drawable/fondo3"
+    android:layout_gravity="center">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/imglogo"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:adjustViewBounds="true"
-            app:srcCompat="@raw/scale" />
-
-        <!--<ImageView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bmi"
-            android:adjustViewBounds="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="32dp"
-            android:orientation="vertical">
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="134dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="156dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/imglogo"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:adjustViewBounds="true"
+                app:srcCompat="@raw/scale" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/comisanbold"
                 android:gravity="center"
                 android:text="Gráfica"
-                android:fontFamily="@font/comisanbold"
                 android:textColor="@color/cafeskip"
-                android:textSize="22sp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="22sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/comicsan"
                 android:gravity="center"
-                android:textSize="16sp"
                 android:text="@string/infoPeso"
-                android:fontFamily="@font/comicsan"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
     </RelativeLayout>

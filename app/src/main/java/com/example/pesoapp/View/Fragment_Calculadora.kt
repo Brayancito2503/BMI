@@ -14,8 +14,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.compose.ui.node.getOrAddAdapter
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieAnimationView
 import com.example.pesoapp.R
+import com.example.pesoapp.View.adapter.sugerenciaAdapter
 import com.example.pesoapp.databinding.FragmentCalculadoraBinding
 import com.github.anastr.speedviewlib.components.Section
 import com.github.anastr.speedviewlib.components.Style
@@ -191,8 +194,10 @@ lateinit var lineData: LineData
             }
         }
         //resultadofinal.add(resultado)
+
         return view
     }
+
 
     fun Nota(Texto: String) {
         val speedometer = binding.speedometer

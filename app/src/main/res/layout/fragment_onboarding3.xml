@@ -3,45 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.Onboarding3Fragment"
-    android:background="@color/fondo">
+    android:background="@drawable/fondobonto"
+    android:layout_gravity="center">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/imgDiamante"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:adjustViewBounds="true"
-            android:src="@drawable/logoapp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_margin="32dp"
-            android:orientation="vertical">
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="125dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/imgDiamante"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                app:srcCompat="@raw/salud" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/comisanbold"
                 android:gravity="center"
                 android:text="salud"
-                android:fontFamily="@font/comisanbold"
                 android:textColor="@color/cafeskip"
-                android:textSize="22sp"
-                android:layout_marginBottom="10dp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/comicsan"
                 android:gravity="center"
-                android:textSize="16sp"
                 android:text="@string/infoSalud"
-                android:fontFamily="@font/comicsan"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
     </RelativeLayout>

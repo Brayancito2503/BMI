@@ -4,44 +4,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Onboarding1Fragment"
-    android:background="@color/fondo">
+    android:background="@drawable/fondo2"
+    android:layout_gravity="center">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/imgView"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:adjustViewBounds="true"
-            android:src="@drawable/bmi" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
-            android:layout_margin="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="68dp"
+            android:gravity="center_horizontal|center_vertical"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/imgView"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="¿Calculadora BMI?"
-                android:fontFamily="@font/comisanbold"
-                android:textColor="@color/cafeskip"
-                android:textSize="22sp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="50dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/bmi" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/comisanbold"
                 android:gravity="center"
-                android:textSize="16sp"
+                android:text="¿Calculadora BMI?"
+                android:textColor="@color/cafeskip"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comicsan"
+                android:gravity="center"
                 android:text="@string/infoBmi"
-                android:fontFamily="@font/comicsan"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
     </RelativeLayout>

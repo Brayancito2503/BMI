@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
     tools:context=".View.Activity_slider">
 
     <me.relex.circleindicator.CircleIndicator
@@ -12,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/cafeboton"/>
+        android:background="#FF9E7251"/>
 
 
     <androidx.viewpager.widget.ViewPager
@@ -30,12 +29,12 @@
             android:id="@+id/btnSkip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Skip"
             android:background="@color/transparente"
-            android:textColor="@color/cafeskip"
             android:fontFamily="@font/comicsan"
+            android:text="@string/Skip"
+            android:textColor="@color/cafeskip"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

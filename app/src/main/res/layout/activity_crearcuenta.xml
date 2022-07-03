@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.Activity_crearcuenta"
-    android:background="@drawable/img2">
+    android:background="@drawable/fondo2">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -46,7 +46,8 @@
                     android:fontFamily="@font/opensans"
                     android:drawableLeft="@drawable/mail"
                     android:hint="@string/hemail"
-                    app:counterMaxLength="25">
+                    app:counterMaxLength="25"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                 </com.google.android.material.textfield.TextInputEditText>
 

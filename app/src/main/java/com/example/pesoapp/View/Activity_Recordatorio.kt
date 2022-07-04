@@ -7,6 +7,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
+import com.example.pesoapp.R
 import com.example.pesoapp.databinding.ActivityRecordatorioBinding
 import java.util.*
 
@@ -19,6 +20,7 @@ class Activity_Recordatorio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRecordatorioBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         createNotificationChannel()
         binding.submitButton.setOnClickListener { scheduleNotification() }
@@ -64,6 +66,8 @@ class Activity_Recordatorio : AppCompatActivity() {
                         "\nAt: " + dateFormat.format(date) + " " + timeFormat.format(date))
             .setPositiveButton("Okay"){_,_ ->}
             .show()
+
+
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -90,5 +94,18 @@ class Activity_Recordatorio : AppCompatActivity() {
         channel.description = desc
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
+
+        val intent = Intent(this, Activity_login::class.java)
+        val stackBuilder = TaskStackBuilder.create(this)
+        stackBuilder.addParentStack(Activity_login::class.java)
+        stackBuilder.addNextIntent(intent)
+
     }
+
+
+
+
+
+
+
 }

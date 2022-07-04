@@ -2,6 +2,7 @@ package com.example.pesoapp.View
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -28,6 +29,8 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.text.DecimalFormat
 import kotlin.math.pow
 import kotlin.properties.Delegates
@@ -144,6 +147,12 @@ class Fragment_Calculadora : Fragment() {
             binding.btnNombre.error = null
             binding.btnMujer.error = null
         }
+
+        //Boton salir
+        binding.buttonsalir.setOnClickListener {
+            signOut()
+        }
+
 
         //Funcion Boton Confirmar
         binding.btnConfirmar.setOnClickListener {
@@ -297,6 +306,12 @@ class Fragment_Calculadora : Fragment() {
             e.message?.let { Log.e("Error en validar", it) }
             return false
         }
+    }
+    private fun signOut(){
+        Firebase.auth.signOut()
+        val intent = Intent(getActivity(), Activity_login::class.java)
+        startActivity(intent)
+
     }
 }
 

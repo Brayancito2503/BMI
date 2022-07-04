@@ -31,7 +31,7 @@ class Activity_splashscreen : AppCompatActivity() {
             val intent = Intent(this,Activity_slider::class.java)
             startActivity(intent)
             finish()
-        }, 5000)
+        }, 3000)
 
         var like = false
 

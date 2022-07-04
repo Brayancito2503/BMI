@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pesoapp.R
 import com.example.pesoapp.View.adapter.sugerenciaAdapter
-import com.example.pesoapp.databinding.FragmentCalculadoraBinding
 import com.example.pesoapp.databinding.FragmentSugerenciasBinding
-import com.google.api.Distribution
+import android.os.Handler
+import com.example.pesoapp.View.ViewModel.LoadingDialog
 
 class Fragment_sugerencias : Fragment() {
 
@@ -26,6 +25,19 @@ class Fragment_sugerencias : Fragment() {
         fbinding = FragmentSugerenciasBinding.inflate(layoutInflater)
         val view = binding.root
         initRecyclerView()
+
+        //cosa pa el progressbar
+
+        val loading = LoadingDialog(this)
+        loading.startLoading()
+        val handler = Handler()
+        handler.postDelayed(object :Runnable{
+            override fun run() {
+                loading.isDismiss()
+            }
+
+        },3000)
+
         return view
     }
 

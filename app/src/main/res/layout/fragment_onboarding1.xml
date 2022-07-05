@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.Onboarding1Fragment"
     android:background="@drawable/fondo2"
     android:layout_gravity="center">
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/bmi" />
+                app:srcCompat="@raw/bmi" />
 
             <TextView
                 android:layout_width="match_parent"

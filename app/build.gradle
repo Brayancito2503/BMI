@@ -116,6 +116,9 @@ dependencies {
     // Shimmer Effect
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
+    //drawer
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+
 
 
 

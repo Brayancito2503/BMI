@@ -88,5 +88,10 @@ class Activity_login : AppCompatActivity() {
         this.startActivity(intent)
     }//Fin de la Funcion reload
 
+    fun onClickCrearCuenta(view: View?) {
+        val intent = Intent(this,
+            Activity_crearcuenta::class.java)
+        startActivity(intent)
+    }
 
 }

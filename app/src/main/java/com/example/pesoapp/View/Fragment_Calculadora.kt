@@ -1,25 +1,18 @@
 package com.example.pesoapp.View
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.compose.ui.node.getOrAddAdapter
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.airbnb.lottie.LottieAnimationView
+import androidx.fragment.app.Fragment
 import com.example.pesoapp.R
-import com.example.pesoapp.View.adapter.sugerenciaAdapter
 import com.example.pesoapp.databinding.FragmentCalculadoraBinding
 import com.github.anastr.speedviewlib.components.Section
 import com.github.anastr.speedviewlib.components.Style
@@ -31,10 +24,7 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import java.text.DecimalFormat
 import kotlin.math.pow
-import kotlin.properties.Delegates
-import kotlinx.android.synthetic.main.fragment__calculadora.*
 
 
 class Fragment_Calculadora : Fragment() {
@@ -132,7 +122,8 @@ class Fragment_Calculadora : Fragment() {
         )
         speedometer.minSpeed = 0F
         speedometer.maxSpeed = 40F
-        speedometer.speedometerWidth = 120F
+//        speedometer.speedometerWidth = 120F
+        speedometer.speedometerWidth = 80F
         //Funcion Click Radio Button Hombre
         binding.btnNombre.setOnClickListener {
             f1 = 2.7f
@@ -149,9 +140,9 @@ class Fragment_Calculadora : Fragment() {
         }
 
         //Boton salir
-        binding.buttonsalir.setOnClickListener {
-            signOut()
-        }
+//        binding.buttonsalir.setOnClickListener {
+//            signOut()
+//        }
 
 
         //Funcion Boton Confirmar
@@ -244,7 +235,7 @@ class Fragment_Calculadora : Fragment() {
         if (resultado < 18) {
             lblInc.text = "Debajo de lo normal ${resultado.toFloat()}"
             Nota("Delgadez")
-        } else if (resultado in 18.1..24.9) {
+        } else if (resultado.dec() in 18.1..24.9) {
             lblInc.text = "Peso Normal ${resultado.dec()}"
             if(pi.toInt() == peso.toInt()){
                 Nota("ideal")

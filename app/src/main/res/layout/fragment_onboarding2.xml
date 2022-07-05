@@ -10,32 +10,24 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
+            android:layout_height="match_parent"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="134dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="156dp"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:layout_marginBottom="68dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/imglogo"
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="10dp"
                 android:adjustViewBounds="true"
                 app:srcCompat="@raw/scale" />
 
@@ -49,12 +41,14 @@
                 android:textColor="@color/cafeskip"
                 android:textSize="22sp" />
 
+
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="@font/comicsan"
-                android:gravity="center"
                 android:text="@string/infoPeso"
+                android:gravity="center"
                 android:textSize="16sp" />
 
         </LinearLayout>

@@ -298,11 +298,5 @@ class Fragment_Calculadora : Fragment() {
             return false
         }
     }
-    private fun signOut(){
-        Firebase.auth.signOut()
-        val intent = Intent(getActivity(), Activity_login::class.java)
-        startActivity(intent)
-
-    }
 }
 

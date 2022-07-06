@@ -119,6 +119,9 @@ dependencies {
     //drawer
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
 
+    //firescore
+    implementation 'com.google.firebase:firebase-database:11.8.0'
+
 
 
 

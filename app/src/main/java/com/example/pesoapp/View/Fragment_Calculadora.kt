@@ -23,7 +23,9 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_sugerencias.*
 import kotlin.math.pow
 
 
@@ -35,9 +37,10 @@ class Fragment_Calculadora : Fragment() {
     private lateinit var itemaltura: String
     private lateinit var itempeso: String
     var resultado: Float = 0.0f
-    lateinit var linelist:ArrayList<Entry>
+    lateinit var linelist: ArrayList<Entry>
     lateinit var lineDataSet: LineDataSet
     lateinit var lineData: LineData
+    val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     var f1 = 0f
     var f2 = 0f
@@ -53,9 +56,8 @@ class Fragment_Calculadora : Fragment() {
         val medidasPeso = resources.getStringArray(R.array.Peso)
 
         ///////////////////////////////////////////////////////////////////////
-        linelist= ArrayList()
-        var dia=0f
-
+        linelist = ArrayList()
+        var dia = 0f
 
 
         //////////////////////////////////////////////////////////////////////////
@@ -104,6 +106,10 @@ class Fragment_Calculadora : Fragment() {
             }
         }
 
+        ///////////////////////////////////////////////////////////////////////////
+
+
+        //////////////////////////////////////////////////////////////////////////
 
         //secciones de la grafica
         val speedometer = binding.speedometer
@@ -144,9 +150,59 @@ class Fragment_Calculadora : Fragment() {
 //            signOut()
 //        }
 
+        val dato = db.collection("prueba")
 
+// Para agregar
+//        val dato = db.collection("prueba").document()
+//        val datos = hashMapOf(
+//            "apellido" to "potosme"
+//        )
+//        dato.set(datos)
+//            .addOnSuccessListener { resultado ->
+//
+//
+//                Log.d("TAGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG", "SI ENTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\nAKJSDAKJSDHKAJSDHKAJSDHKJASDHKAJSDHKAJSDH\nASDJASDKJASDADSASDDA")
+//
+//            }.addOnFailureListener{exepcion ->
+//                Log.d("TAG", "NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\nError ${exepcion}")
+//            }
         //Funcion Boton Confirmar
         binding.btnConfirmar.setOnClickListener {
+
+            // para traer datos
+//            val dato = db.collection("prueba")
+//            var datos = " "
+//
+//            dato.get()
+//                .addOnSuccessListener { resultado ->
+//                    for(docuemnto in resultado){
+//                       datos += "${docuemnto.id} => ${docuemnto.data}"
+//                    }
+//
+//                    binding.pruba.text = datos
+//                }.addOnFailureListener{exepcion ->
+//                    Log.d("TAG", "Error ${exepcion}")
+//                }
+
+            val dato = db.collection("prueba")
+
+
+            var datos = " "
+            dato.whereEqualTo("apellido", 1)
+                .get()
+                .addOnSuccessListener { resultado ->
+                    for(docuemnto in resultado){
+                        datos = "${docuemnto.data}"
+                    }
+
+                  binding.pruba.text = datos
+                }.addOnFailureListener{exepcion ->
+                    Log.d("TAG", "Error ${exepcion}")
+                }
+
+
+
+
 
             if (validarCampos()) {
                 val txtPeso = binding.pesoTxt
@@ -154,28 +210,29 @@ class Fragment_Calculadora : Fragment() {
                 val peso = txtPeso.text.toString().toFloat()
                 val altura = txtAltura.text.toString().toFloat()
                 var pi: Double
-                dia=dia+1
+                dia = dia + 1
 
 
-                if(dia==31f){
-                    dia=1f
+                if (dia == 31f) {
+                    dia = 1f
                     linelist.clear()
                 }
 
-                linelist.add(Entry(dia,peso))
 
-                lineDataSet= LineDataSet(linelist,"Su peso")
+                        linelist.add(Entry(dia, peso))
 
-                lineData=LineData(lineDataSet)
+                        lineDataSet = LineDataSet(linelist, "Su peso")
 
-                binding.lineChart.data = lineData
+                        lineData = LineData(lineDataSet)
+
+                        binding.lineChart.data = lineData
+
 
                 lineDataSet.setColors(*ColorTemplate.JOYFUL_COLORS)
-                lineDataSet.valueTextColor=Color.BLUE
-                lineDataSet.valueTextSize=20f
+                lineDataSet.valueTextColor = Color.BLUE
+                lineDataSet.valueTextSize = 20f
                 //altura == cm && Peso == lb
-                if (itemaltura == "cm" && itempeso == "lb")
-                {
+                if (itemaltura == "cm" && itempeso == "lb") {
                     resultado = (peso / 2.2F) / (altura / 100).pow(2)
                     pi = ((((altura - 152.4) / 2.54) * f1) + f2) * 2.2F
                     resultados(resultado, pi, "Libras")
@@ -196,7 +253,7 @@ class Fragment_Calculadora : Fragment() {
                 if (itemaltura == "m" && itempeso == "kg") {
                     resultado = peso / altura.pow(2)
                     pi = (((((altura * 100) - 152.4) / 2.54) * f1) + f2)
-                    resultados(resultado, pi,"Kilos")
+                    resultados(resultado, pi, "Kilos")
                 }
             }
         }
@@ -223,8 +280,9 @@ class Fragment_Calculadora : Fragment() {
         speedometer.addNote(note, 8000)
     }
 
+    //Funcion para calcular el rango del bmi
 
-    fun resultados(resultado: Float, pi: Double, texto:String) {
+    fun resultados(resultado: Float, pi: Double, texto: String) {
 
         val speedometer = binding.speedometer
         val lblPi = binding.pilbl
@@ -237,9 +295,9 @@ class Fragment_Calculadora : Fragment() {
             Nota("Delgadez")
         } else if (resultado.dec() in 18.1..24.9) {
             lblInc.text = "Peso Normal ${resultado.dec()}"
-            if(pi.toInt() == peso.toInt()){
+            if (pi.toInt() == peso.toInt()) {
                 Nota("ideal")
-            }else{
+            } else {
                 Nota("Normal")
             }
         } else if (resultado in 25.0..29.9) {

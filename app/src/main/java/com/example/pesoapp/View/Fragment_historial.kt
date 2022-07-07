@@ -33,57 +33,40 @@ class Fragment_historial : Fragment() {
 
     val db = FirestoreService()
     val userId = Firebase.auth.currentUser!!.uid
-    var indiceMasaCorporal = IndiceMasaCorporal()
-
+    var indiceMasaCorporal = MutableLiveData<IndiceMasaCorporal>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHistorialBinding.inflate(layoutInflater)
+        binding = FragmentHistorialBinding.inflate(layoutInflater, container, false)
         val view = binding.root
-        // Inflate the layout for this fragment
 
         loadUser()
 
-
         linelist = ArrayList()
         var dia = 0f
-
-
-        indiceMasaCorporal.pesos
-
 
         if (dia == 31f) {
             dia = 1f
             linelist.clear()
         }
 
-
-
-        val peso: List<Float> = listOf(10F, 30F, 50F, 20F)
-
-        val peso3 = indiceMasaCorporal.pesos
-
-
-
-        for (elemento in indiceMasaCorporal.pesos){
-
-            dia += 1
-            var peso2 = elemento
-
-            linelist.add(Entry(dia, peso2 ))
+        indiceMasaCorporal.observe(viewLifecycleOwner) {
+            indiceMasaCorporal.value?.let {
+                for (peso in it.pesos) {
+                    dia += 1
+                    linelist.add(Entry(dia, peso))
+                    lineDataSet = LineDataSet(linelist, "Su peso")
+                    lineData = LineData(lineDataSet)
+                    binding.lineChart.data = lineData
+                }
+            }
         }
 
-
-
-
         lineDataSet = LineDataSet(linelist, "Su peso")
-
         lineData = LineData(lineDataSet)
-
         binding.lineChart.data = lineData
-
 
         lineDataSet.setColors(*ColorTemplate.JOYFUL_COLORS)
         lineDataSet.valueTextColor = Color.BLUE
@@ -92,31 +75,13 @@ class Fragment_historial : Fragment() {
         return view
     }
 
-    private fun updateUserData() {
-        db.update(userId, indiceMasaCorporal, object: OnQueryCompletedCallback {
-            override fun <T> onSuccess(result: T) {
-                Log.d(Fragment_Calculadora.TAG, "Datos de usuario $userId actualizados")
-            }
-
-            override fun <T> onFailure(result: T) {
-                Log.w(Fragment_Calculadora.TAG, "Datos de usuario $userId no se han podido actualizar")
-            }
-        })
-    }
-
     private fun loadUser() {
         db.getUserData(userId, object: OnQueryCompletedCallback {
             override fun <T> onSuccess(result: T) {
                 val document = result as DocumentSnapshot
-                Log.d(Fragment_Calculadora.TAG, "Document with id ${document.id} retrieved")
                 val data = document.toObject<IndiceMasaCorporal>()
                 if (data != null) {
-                    Log.d(Fragment_Calculadora.TAG, "User exists, document retrieved as object")
-                    indiceMasaCorporal = data
-                }
-                else {
-                    Log.d(Fragment_Calculadora.TAG, "User doesn't exist, creating...")
-                    createUser()
+                    indiceMasaCorporal.value = data
                 }
             }
 
@@ -125,17 +90,4 @@ class Fragment_historial : Fragment() {
             }
         })
     }
-
-    private fun createUser() {
-        db.update(userId, indiceMasaCorporal, object: OnQueryCompletedCallback {
-            override fun <T> onSuccess(result: T) {
-                Log.d(Fragment_Calculadora.TAG, "Usuario $userId creado con exito")
-            }
-            override fun <T> onFailure(result: T) {
-                Log.d(Fragment_Calculadora.TAG, "Fallo al crear usuario $userId")
-            }
-        })
-    }
-
-
 }

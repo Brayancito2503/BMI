@@ -46,9 +46,8 @@ class Fragment_Calculadora : Fragment() {
     private lateinit var itemaltura: String
     private lateinit var itempeso: String
     var resultado: Float = 0.0f
-    lateinit var linelist: ArrayList<Entry>
-    lateinit var lineDataSet: LineDataSet
-    lateinit var lineData: LineData
+
+
     val db = FirestoreService()
     val userId = Firebase.auth.currentUser!!.uid
     var indiceMasaCorporal = IndiceMasaCorporal()
@@ -70,8 +69,7 @@ class Fragment_Calculadora : Fragment() {
         val medidasPeso = resources.getStringArray(R.array.Peso)
 
         ///////////////////////////////////////////////////////////////////////
-        linelist = ArrayList()
-        var dia = 0f
+
 
         //////////////////////////////////////////////////////////////////////////
 
@@ -168,29 +166,12 @@ class Fragment_Calculadora : Fragment() {
                 val peso = txtPeso.text.toString().toFloat()
                 val altura = txtAltura.text.toString().toFloat()
                 var pi: Double
-                dia += 1
+
 
                 updateIMC(peso, altura)
 
 
-                if (dia == 31f) {
-                    dia = 1f
-                    linelist.clear()
-                }
 
-
-                        linelist.add(Entry(dia, peso))
-
-                        lineDataSet = LineDataSet(linelist, "Su peso")
-
-                        lineData = LineData(lineDataSet)
-
-                        binding.lineChart.data = lineData
-
-
-                lineDataSet.setColors(*ColorTemplate.JOYFUL_COLORS)
-                lineDataSet.valueTextColor = Color.BLUE
-                lineDataSet.valueTextSize = 20f
                 //altura == cm && Peso == lb
                 if (itemaltura == "cm" && itempeso == "lb") {
                     resultado = (peso / 2.2F) / (altura / 100).pow(2)

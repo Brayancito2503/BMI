@@ -68,6 +68,13 @@ class Activity_menu : AppCompatActivity() {
                 }
 
                 R.id.mfragment_histo->{
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.nav_host_fragment_container, Fragment_historial())
+                        commit()
+                    }
+                }
+
+                R.id.CerrarSesion ->{
                     signOut()
                 }
             }

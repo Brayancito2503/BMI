@@ -16,10 +16,11 @@
         android:icon="@drawable/sugerencia"/>
 
     <item android:id="@+id/mfragment_histo"
+        android:title="Grafica"
+        android:icon="@drawable/grafico"/>
+
+    <item android:id="@+id/CerrarSesion"
         android:title="Cerrar Sesion"
         android:icon="@drawable/cerrarsesion"/>
-<!--    <item android:id="@+id/CerrarSesion"-->
-<!--        android:title="Cerrar Sesion"-->
-<!--        android:icon=""-->
 
 </menu>

@@ -13,7 +13,10 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.pesoapp.R
+import com.example.pesoapp.View.ViewModel.IndiceMasaCorporal
 import com.example.pesoapp.databinding.FragmentCalculadoraBinding
+import com.example.pesoapp.service.FirestoreService
+import com.example.pesoapp.service.OnQueryCompletedCallback
 import com.github.anastr.speedviewlib.components.Section
 import com.github.anastr.speedviewlib.components.Style
 import com.github.anastr.speedviewlib.components.note.Note
@@ -23,13 +26,19 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_sugerencias.*
 import kotlin.math.pow
 
 
 class Fragment_Calculadora : Fragment() {
+
+    companion object {
+        const val TAG = "FragmentCalculadora"
+    }
 
     //Declaracion de variables
     private var fbinding: FragmentCalculadoraBinding? = null
@@ -40,7 +49,9 @@ class Fragment_Calculadora : Fragment() {
     lateinit var linelist: ArrayList<Entry>
     lateinit var lineDataSet: LineDataSet
     lateinit var lineData: LineData
-    val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    val db = FirestoreService()
+    val userId = Firebase.auth.currentUser!!.uid
+    var indiceMasaCorporal = IndiceMasaCorporal()
 
     var f1 = 0f
     var f2 = 0f
@@ -52,13 +63,15 @@ class Fragment_Calculadora : Fragment() {
         // Inflate the layout for this fragment
         fbinding = FragmentCalculadoraBinding.inflate(layoutInflater)
         val view = binding.root
+
+        loadUser()
+
         val medidasEstatura = resources.getStringArray(R.array.Estatura)
         val medidasPeso = resources.getStringArray(R.array.Peso)
 
         ///////////////////////////////////////////////////////////////////////
         linelist = ArrayList()
         var dia = 0f
-
 
         //////////////////////////////////////////////////////////////////////////
 
@@ -145,72 +158,19 @@ class Fragment_Calculadora : Fragment() {
             binding.btnMujer.error = null
         }
 
-        //Boton salir
-//        binding.buttonsalir.setOnClickListener {
-//            signOut()
-//        }
-
-        val dato = db.collection("prueba")
-
-// Para agregar
-//        val dato = db.collection("prueba").document()
-//        val datos = hashMapOf(
-//            "apellido" to "potosme"
-//        )
-//        dato.set(datos)
-//            .addOnSuccessListener { resultado ->
-//
-//
-//                Log.d("TAGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG", "SI ENTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\nAKJSDAKJSDHKAJSDHKAJSDHKJASDHKAJSDHKAJSDH\nASDJASDKJASDADSASDDA")
-//
-//            }.addOnFailureListener{exepcion ->
-//                Log.d("TAG", "NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO\nError ${exepcion}")
-//            }
         //Funcion Boton Confirmar
         binding.btnConfirmar.setOnClickListener {
 
-            // para traer datos
-//            val dato = db.collection("prueba")
-//            var datos = " "
-//
-//            dato.get()
-//                .addOnSuccessListener { resultado ->
-//                    for(docuemnto in resultado){
-//                       datos += "${docuemnto.id} => ${docuemnto.data}"
-//                    }
-//
-//                    binding.pruba.text = datos
-//                }.addOnFailureListener{exepcion ->
-//                    Log.d("TAG", "Error ${exepcion}")
-//                }
-
-            val dato = db.collection("prueba")
-
-
-            var datos = " "
-            dato.whereEqualTo("apellido", 1)
-                .get()
-                .addOnSuccessListener { resultado ->
-                    for(docuemnto in resultado){
-                        datos = "${docuemnto.data}"
-                    }
-
-                  binding.pruba.text = datos
-                }.addOnFailureListener{exepcion ->
-                    Log.d("TAG", "Error ${exepcion}")
-                }
-
-
-
-
-
             if (validarCampos()) {
+
                 val txtPeso = binding.pesoTxt
                 val txtAltura = binding.alturaTxt
                 val peso = txtPeso.text.toString().toFloat()
                 val altura = txtAltura.text.toString().toFloat()
                 var pi: Double
-                dia = dia + 1
+                dia += 1
+
+                updateIMC(peso, altura)
 
 
                 if (dia == 31f) {
@@ -278,6 +238,63 @@ class Fragment_Calculadora : Fragment() {
             .setCornersRound(20f) // dialog's rectangle Corners Round.
             .setTextSize(speedometer.dpTOpx(20f))
         speedometer.addNote(note, 8000)
+    }
+
+    private fun updateIMC(peso: Float, altura: Float) {
+        var nuevaAltura = altura
+        var nuevoPeso = peso
+
+        if (itemaltura == "m") nuevaAltura *= 100
+        if (itempeso == "kg") nuevoPeso *= 2.2f
+
+        indiceMasaCorporal.agregarDatos(nuevoPeso, nuevaAltura)
+
+        updateUserData()
+    }
+
+    private fun updateUserData() {
+        db.update(userId, indiceMasaCorporal, object: OnQueryCompletedCallback {
+            override fun <T> onSuccess(result: T) {
+                Log.d(TAG, "Datos de usuario $userId actualizados")
+            }
+
+            override fun <T> onFailure(result: T) {
+                Log.w(TAG, "Datos de usuario $userId no se han podido actualizar")
+            }
+        })
+    }
+
+    private fun loadUser() {
+        db.getUserData(userId, object: OnQueryCompletedCallback {
+            override fun <T> onSuccess(result: T) {
+                val document = result as DocumentSnapshot
+                Log.d(TAG, "Document with id ${document.id} retrieved")
+                val data = document.toObject<IndiceMasaCorporal>()
+                if (data != null) {
+                    Log.d(TAG, "User exists, document retrieved as object")
+                    indiceMasaCorporal = data
+                }
+                else {
+                    Log.d(TAG, "User doesn't exist, creating...")
+                    createUser()
+                }
+            }
+
+            override fun <T> onFailure(result: T) {
+                Log.w(TAG, "Couldn't get data for user $userId")
+            }
+        })
+    }
+
+    private fun createUser() {
+        db.update(userId, indiceMasaCorporal, object: OnQueryCompletedCallback {
+            override fun <T> onSuccess(result: T) {
+                Log.d(TAG, "Usuario $userId creado con exito")
+            }
+            override fun <T> onFailure(result: T) {
+                Log.d(TAG, "Fallo al crear usuario $userId")
+            }
+        })
     }
 
     //Funcion para calcular el rango del bmi
